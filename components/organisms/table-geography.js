@@ -1,6 +1,6 @@
 import { Table } from '@nextui-org/react';
 
-export default function table(){
+export default function TableGeography(){
   const columns = [
     {
       key: "header_1",
@@ -69,7 +69,7 @@ export default function table(){
           </Table.Row>
         )}
       </Table.Body>
-      
+
     </Table>
   );
 
