@@ -1,94 +1,113 @@
 import React, {useState} from 'react'
 
 class SearchBar extends React.Component {
-    const [searchInput, setSearchInput] = useState("");
-    const handleChange = (e) => {
-        e.preventDefault();
-        setSearchInput(e.target.value);
-        console.log(searchInput)
-    };
 
-    const columns = [
-        {
-            key: "order",
-            label: "Order",
-        },
-        {
-            key: "country",
-            label: "Country",
-        },
-        {
-            key: "player",
-            label: "Player today",
-        },
-        {
-            key: "statusPlayer",
-            label: "Status player",
-        },
-    ];
-    const rows = [
-        {
-            key: "4",
-            order: "4",
-            country: "Country4",
-            player: "Player",
-            statusPlayer: "up",
-        },
-        {
-            key: "5",
-            order: "5",
-            country: "Country5",
-            player: "Player",
-            statusPlayer: "up",
-        },
-        {
-            key: "6",
-            order: "6",
-            country: "Country6",
-            player: "Player",
-            statusPlayer: "down",
-        },
-        {
-            key: "7",
-            order: "7",
-            country: "Country7",
-            player: "Player",
-            statusPlayer: "up",
-        },
-        {
-            key: "8",
-            order: "8",
-            country: "Country8",
-            player: "Player",
-            statusPlayer: "up",
-        },
-        {
-            key: "9",
-            order: "9",
-            country: "Country9",
-            player: "Player",
-            statusPlayer: "down",
-        },
-        {
-            key: "10",
-            order: "10",
-            country: "Country10",
-            player: "Player",
-            statusPlayer: "down",
-        },
-    ];
 
-    const arrowColor = (statusPlayer) => {
-        if (statusPlayer==="down") {
-            return <div style={{ width:"0px", height:"0px", borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderTop: "10px solid #F45D48"}}></div>
-        }
-        else {
-            return <div style={{ width:"0px", height:"0px", borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderBottom: "10px solid #22CC13"}}></div>
-        }
+    constructor(props) {
+        super(props);
     }
 
-    return (
-        <div style={{paddingLeft:"2%", paddingRight:"2%"}}>
+    render() {
+
+        const [searchInput, setSearchInput] = useState("");
+        const handleChange = (e) => {
+            e.preventDefault();
+            setSearchInput(e.target.value);
+            console.log(searchInput)
+        };
+
+        const columns = [
+            {
+                key: "order",
+                label: "Order",
+            },
+            {
+                key: "country",
+                label: "Country",
+            },
+            {
+                key: "player",
+                label: "Player today",
+            },
+            {
+                key: "statusPlayer",
+                label: "Status player",
+            },
+        ];
+        const rows = [
+            {
+                key: "4",
+                order: "4",
+                country: "Country4",
+                player: "Player",
+                statusPlayer: "up",
+            },
+            {
+                key: "5",
+                order: "5",
+                country: "Country5",
+                player: "Player",
+                statusPlayer: "up",
+            },
+            {
+                key: "6",
+                order: "6",
+                country: "Country6",
+                player: "Player",
+                statusPlayer: "down",
+            },
+            {
+                key: "7",
+                order: "7",
+                country: "Country7",
+                player: "Player",
+                statusPlayer: "up",
+            },
+            {
+                key: "8",
+                order: "8",
+                country: "Country8",
+                player: "Player",
+                statusPlayer: "up",
+            },
+            {
+                key: "9",
+                order: "9",
+                country: "Country9",
+                player: "Player",
+                statusPlayer: "down",
+            },
+            {
+                key: "10",
+                order: "10",
+                country: "Country10",
+                player: "Player",
+                statusPlayer: "down",
+            },
+        ];
+
+        const arrowColor = (statusPlayer) => {
+            if (statusPlayer === "down") {
+                return <div style={{
+                    width: "0px",
+                    height: "0px",
+                    borderLeft: "10px solid transparent",
+                    borderRight: "10px solid transparent",
+                    borderTop: "10px solid #F45D48"
+                }}></div>
+            } else {
+                return <div style={{
+                    width: "0px",
+                    height: "0px",
+                    borderLeft: "10px solid transparent",
+                    borderRight: "10px solid transparent",
+                    borderBottom: "10px solid #22CC13"
+                }}></div>
+            }
+        }
+
+        return (
+            <div style={{paddingLeft:"2%", paddingRight:"2%"}}>
                 <h1 style={{fontSize: "30px"}}>Geography Search</h1>
                 <div style={{padding:"19px 85px 0px 18px"}}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -137,7 +156,7 @@ class SearchBar extends React.Component {
                 <div style={{paddingTop:"264px"}}>
                     <div style={{ height: "auto", width: "100%", backgroundColor:"#F6F6F6", borderRadius:"10px 19px 0px 0px"}}>
                         <div style={{paddingTop:"17px"}}>
-                            {rows.map((item) => (
+                            {this.rows.map((item) => (
                                 <div style={{paddingTop:"12px", paddingRight:"4%", paddingLeft:"4%"}}>
                                     <div style={{ backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"80px",paddingLeft:"3%", paddingRight:"3%"}} >
                                         <div style={{ width:"5%", margin:"auto"}}>
@@ -157,7 +176,8 @@ class SearchBar extends React.Component {
                     </div>
                 </div>
             </div>
-    )
+        )
+    }
 }
 
 
