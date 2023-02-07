@@ -3,7 +3,7 @@ import { Table } from "@nextui-org/react";
 
 class SearchBar extends React.Component {
     const [searchInput, setSearchInput] = useState("");
-    const [statusUp, setStatusUp] = useState(false)
+
     const handleChange = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value);
@@ -80,13 +80,8 @@ class SearchBar extends React.Component {
         },
     ];
 
-    const arrowColor = (rows) => {
-        if (rows.statusPlayer==="down") {
-            setStatusUp(false)
-        } else {
-            setStatusUp(true)
-        }
-        if (!statusUp) {
+    const arrowColor = () => {
+         if (rows.statusPlayer==="down") {
             return <div style={{ width:"0px", height:"0px", borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderTop: "10px solid #F45D48"}}></div>
         }
         else {
@@ -163,7 +158,7 @@ class SearchBar extends React.Component {
                                 <Table.Row key={item.key}  css={{backgroundColor:"$white", borderRadius:"10px", height:"80px", width:"100%"}}>
                                     <Table.Cell>
                                         {item.order}
-                                        {arrowColor}
+                                        {arrowColor()}
                                     </Table.Cell>
                                     <Table.Cell css={{textAlign:"center"}}>
                                         {item.country}
