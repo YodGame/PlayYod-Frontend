@@ -80,8 +80,8 @@ class SearchBar extends React.Component {
         },
     ];
 
-    const arrowColor = () => {
-         if (rows.statusPlayer==="down") {
+    const arrowColor = (statusPlaye) => {
+         if (statusPlayer==="down") {
             return <div style={{ width:"0px", height:"0px", borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderTop: "10px solid #F45D48"}}></div>
         }
         else {
@@ -158,7 +158,7 @@ class SearchBar extends React.Component {
                                 <Table.Row key={item.key}  css={{backgroundColor:"$white", borderRadius:"10px", height:"80px", width:"100%"}}>
                                     <Table.Cell>
                                         {item.order}
-                                        {arrowColor()}
+                                        {arrowColor(item.statusPlayer)}
                                     </Table.Cell>
                                     <Table.Cell css={{textAlign:"center"}}>
                                         {item.country}
