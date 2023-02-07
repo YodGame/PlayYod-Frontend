@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
-import { Table } from "@nextui-org/react";
 
 class SearchBar extends React.Component {
     const [searchInput, setSearchInput] = useState("");
-
     const handleChange = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value);
@@ -80,8 +78,8 @@ class SearchBar extends React.Component {
         },
     ];
 
-    const arrowColor = (statusPlaye) => {
-         if (statusPlayer==="down") {
+    const arrowColor = (statusPlayer) => {
+        if (statusPlayer==="down") {
             return <div style={{ width:"0px", height:"0px", borderLeft: "10px solid transparent", borderRight: "10px solid transparent", borderTop: "10px solid #F45D48"}}></div>
         }
         else {
@@ -90,8 +88,7 @@ class SearchBar extends React.Component {
     }
 
     return (
-        <Template>
-            <div style={{paddingLeft:"2%", paddingRight:"2%"}}>
+        <div style={{paddingLeft:"2%", paddingRight:"2%"}}>
                 <h1 style={{fontSize: "30px"}}>Geography Search</h1>
                 <div style={{padding:"19px 85px 0px 18px"}}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -138,41 +135,29 @@ class SearchBar extends React.Component {
                     </div>
                 </div>
                 <div style={{paddingTop:"264px"}}>
-                    <Table
-                        aria-label="top geography"
-                        selectionMode="single"
-                        lined={true}
-                        lineWeight={'light'}
-                        css={{
-                            height: "auto",
-                            minWidth: "100%",
-                            paddingTop: "28px",
-                        }}>
-                        <Table.Header columns={columns}>
-                            <Table.Column key="order" width={5} css={{textAlign:"center"}}>Order</Table.Column>
-                            <Table.Column key="country" width={720} css={{textAlign:"center"}}>Country</Table.Column>
-                            <Table.Column key="player" css={{textAlign:"center"}} >Player today</Table.Column>
-                        </Table.Header>
-                        <Table.Body items={rows}>
-                            {(item) => (
-                                <Table.Row key={item.key}  css={{backgroundColor:"$white", borderRadius:"10px", height:"80px", width:"100%"}}>
-                                    <Table.Cell>
-                                        {item.order}
-                                        {arrowColor(item.statusPlayer)}
-                                    </Table.Cell>
-                                    <Table.Cell css={{textAlign:"center"}}>
-                                        {item.country}
-                                    </Table.Cell>
-                                    <Table.Cell css={{textAlign:"center"}}>
-                                        {item.player}
-                                    </Table.Cell>
-                                </Table.Row>
-                            )}
-                        </Table.Body>
-                        </Table>
+                    <div style={{ height: "auto", width: "100%", backgroundColor:"#F6F6F6", borderRadius:"10px 19px 0px 0px"}}>
+                        <div style={{paddingTop:"17px"}}>
+                            {rows.map((item) => (
+                                <div style={{paddingTop:"12px", paddingRight:"4%", paddingLeft:"4%"}}>
+                                    <div style={{ backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"80px",paddingLeft:"3%", paddingRight:"3%"}} >
+                                        <div style={{ width:"5%", margin:"auto"}}>
+                                            <h5 style={{fontSize:"16px"}} key={item.key}>{item.order}</h5>
+                                            {arrowColor(item.statusPlayer)}
+                                        </div>
+                                        <div style={{ width:"65%", margin:"auto", textAlign:"center"}}>
+                                            <h5 style={{fontSize:"16px"}} key={item.key}>{item.country}</h5>
+                                        </div>
+                                        <div style={{ width:"30%", margin:"auto", textAlign:"center"}}>
+                                            <h5 style={{fontSize:"16px"}} key={item.key}>{item.player}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
-)
+    )
 }
 
 
