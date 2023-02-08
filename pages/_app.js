@@ -1,8 +1,7 @@
 import '@/styles/globals.css'
+import '@/styles/country.css'
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import '@/styles/hoverbar.css'
-
 config.autoAddCss = false;
 
 import Head from 'next/head';
