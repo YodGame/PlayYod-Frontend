@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import GeographyTemplate from "@/components/organisms/geography-template";
 export default function Geography() {
 
     const [searchInput, setSearchInput] = useState("");
@@ -105,7 +105,7 @@ export default function Geography() {
                            value={searchInput} />
                 </div>
                 <h1 style={{fontSize: "30px", paddingTop:"48px"}}>Top Geography</h1>
-
+                <GeographyTemplate></GeographyTemplate>
                 <div style={{paddingLeft:"70%"}}>
                     <div style={{ position:"absolute", paddingTop:"153px"}}>
                         <h5 style={{backgroundColor:"#4FA3A5", width:"250px", height:"112px", paddingTop:"77px", fontSize:"16px", textAlign:"center", color:"white"}}>Country</h5>

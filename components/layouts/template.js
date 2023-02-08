@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Script from "next/script";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome , faGlobeAmericas ,faBars} from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
+import geographyTemplate from "@/components/organisms/geography-template";
+
 
 export default function Template(props) {
     return (
@@ -11,31 +13,26 @@ export default function Template(props) {
                 <title>PlayYod</title>
             </Head>
             <main>
-                <div className="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-                    <div className="sidebar-brand d-none d-md-flex">
+                <div className="sidebar sidebar-white sidebar-fixed bg-white " id="sidebar" >
+                    <div className="sidebar-brand d-none d-md-block bg-gray-light">
+                        <dl >
+                            <div style={{paddingTop:10,paddingLeft:20}}>
+                            <dt className="nav-item"><FontAwesomeIcon className="nav-icon" icon={faBars}  />
+                            <img src="https://i.ibb.co/w6cx7NZ/playyod-removebg-preview-1.png" alt="playyod-removebg-preview-1" style={{paddingLeft:"10%"}} />
+                            </dt>
+                            </div>
+                        </dl>
 
                     </div>
                     <ul className="sidebar-nav" data-coreui="navigation" data-simplebar="">
-                        <li className="nav-title">Theme</li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/"><FontAwesomeIcon className="nav-icon" icon={faHome} /> Colors</Link>
+                            <Link className="nav-link" href="/" style={{color:'gray-1'}}><FontAwesomeIcon className="nav-icon" icon={faHome} style={{color:'gray-1'}}  /> HOME</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/a"><FontAwesomeIcon className="nav-icon" icon={faHome} /> Colors1</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/b"><FontAwesomeIcon className="nav-icon" icon={faHome} /> Colors2</Link>
-                        </li>
-                        <li className="nav-group"><a className="nav-link nav-group-toggle" href="#">
-                            <FontAwesomeIcon className="nav-icon" icon={faHome} /> Buttons</a>
-                            <ul className="nav-group-items">
-                                <li className="nav-item"><Link className="nav-link" href="/c"><FontAwesomeIcon className="nav-icon" icon={faHome} /> Buttons</Link></li>
-                                <li className="nav-item"><Link className="nav-link" href="/d"><FontAwesomeIcon className="nav-icon" icon={faHome} /> Buttons Group</Link></li>
-                                <li className="nav-item"><Link className="nav-link" href="/e"><FontAwesomeIcon className="nav-icon" icon={faHome} /> Dropdowns</Link></li>
-                            </ul>
+                            <Link className="nav-link" href="/geograph" style={{color:'gray-1'}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:'gray-1'}}/> Geography</Link>
                         </li>
                     </ul>
-                    <button className="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+
                 </div>
                 <div className="wrapper d-flex flex-column min-vh-100 bg-light">
                     <header className="header header-sticky mb-4">
