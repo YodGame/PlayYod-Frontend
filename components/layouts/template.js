@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Script from "next/script";
+import * as React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome , faGlobeAmericas ,faBars} from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
@@ -13,11 +14,11 @@ export default function Template(props) {
                 <title>PlayYod</title>
             </Head>
             <main>
-                <div className="sidebar sidebar-white sidebar-fixed bg-white " id="sidebar" >
-                    <div className="sidebar-brand d-none d-md-block bg-gray-light">
+                <div className="sidebar sidebar-light sidebar-fixed bg-white " id="sidebar" >
+                    <div className="sidebar-brand d-none d-md-block bg-gray-100">
                         <dl >
                             <div style={{paddingTop:10,paddingLeft:20}}>
-                            <dt className="nav-item"><FontAwesomeIcon className="nav-icon" icon={faBars}  />
+                            <dt className="nav-item"><FontAwesomeIcon className="nav-icon" icon={faBars} style={{color:"#0F1C3C"}}  />
                             <img src="https://i.ibb.co/w6cx7NZ/playyod-removebg-preview-1.png" alt="playyod-removebg-preview-1" style={{paddingLeft:"10%"}} />
                             </dt>
                             </div>
@@ -26,10 +27,10 @@ export default function Template(props) {
                     </div>
                     <ul className="sidebar-nav" data-coreui="navigation" data-simplebar="">
                         <li className="nav-item">
-                            <Link className="nav-link" href="/" style={{color:'gray-1'}}><FontAwesomeIcon className="nav-icon" icon={faHome} style={{color:'gray-1'}}  /> HOME</Link>
+                            <Link className="nav-link" href="/" style={{color:"#0F1C3C"}}><FontAwesomeIcon className="nav-icon" icon={faHome} style={{color:"#0F1C3C"}}  /> HOME</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/geograph" style={{color:'gray-1'}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:'gray-1'}}/> Geography</Link>
+                            <Link className="nav-link" href="/geograph" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Geography</Link>
                         </li>
                     </ul>
 
@@ -68,5 +69,8 @@ export default function Template(props) {
             <Script src="/js/coreui.bundle.min.js" />
             <Script src="/js/simplebar.min.js" />
         </>
+
     )
+
 }
+
