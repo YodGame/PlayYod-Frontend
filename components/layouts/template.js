@@ -4,7 +4,6 @@ import * as React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome , faGlobeAmericas ,faBars} from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
-import geographyTemplate from "@/components/organisms/geography-template";
 import { API_URL } from "@/config";
 import axios from 'axios';
 
@@ -40,7 +39,10 @@ export default function Template(props) {
                             <Link className="nav-link" href="/" style={{color:"#0F1C3C"}}><FontAwesomeIcon className="nav-icon" icon={faHome} style={{color:"#0F1C3C"}}  /> HOME</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/geograph" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Geography</Link>
+                            <Link className="nav-link" href="/geoGraph" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Geography</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" href="/topRecord" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Top Record</Link>
                         </li>
                     </ul>
 

@@ -1,5 +1,5 @@
 import Template from "@/components/layouts/template";
-import GeographyTemplate from "@/components/organisms/geography-template";
+import GeographyTemplate from "@/components/molecules/geography-template";
 import React from 'react'
 import TopThreeCountry from "@/components/molecules/top-three-country";
 import Row from 'react-bootstrap/Row';
