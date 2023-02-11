@@ -89,14 +89,14 @@ export default function Rating_table() {
                         <div style={{paddingTop:"12px", paddingRight:"4%", paddingLeft:"4%"}}>
                             <div style={{ backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"80px",paddingLeft:"3%", paddingRight:"3%"}} >
                                 <div style={{ width:"5%", margin:"auto"}}>
-                                    <h5 style={{fontSize:"16px"}} key={item.key}>{item.order}</h5>
+                                    <h5 style={{fontSize:"16px", color:"black"}} key={item.key}>{item.order}</h5>
                                     {arrowColor(item.statusPlayer)}
                                 </div>
                                 <div style={{ width:"65%", margin:"auto", textAlign:"center"}}>
-                                    <h5 style={{fontSize:"16px"}} key={item.key}>{item.country}</h5>
+                                    <h5 style={{fontSize:"16px", color:"black"}} key={item.key}>{item.country}</h5>
                                 </div>
                                 <div style={{ width:"30%", margin:"auto", textAlign:"center"}}>
-                                    <h5 style={{fontSize:"16px"}} key={item.key}>{item.player}</h5>
+                                    <h5 style={{fontSize:"16px", color:"black"}} key={item.key}>{item.player}</h5>
                                 </div>
                             </div>
                         </div>

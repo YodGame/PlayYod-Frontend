@@ -12,12 +12,12 @@ export default function Geography() {
 
     return (
         <Template>
-            <h1 style={{fontSize: "30px"}}>Geography Search</h1>
+            <h1 style={{fontSize: "30px", color:"black"}}>Geography Search</h1>
             <SearchBar/>
             <br/>
             <GeographyTemplate/>
             <br/>
-            <h1 style={{fontSize: "30px"}}>Top Geography</h1>
+            <h1 style={{fontSize: "30px", color:"black"}}>Top Geography</h1>
             <Row style={{paddingLeft:'160px'}}>
                 <Col style={{marginTop:34}}>
                     <TopThreeCountry style="top1" countryName="Japan" rate="2" backgroundColor="#FDAE38" height ="146px" margin="34" img="https://cdn.britannica.com/33/4833-004-828A9A84/Flag-United-States-of-America.jpg" />
