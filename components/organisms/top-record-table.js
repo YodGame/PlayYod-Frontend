@@ -106,8 +106,8 @@ export default function TopRecordTable(){
                 <h5 style={{width:"30%", fontSize:"25px", textAlign:"center", color:"black"}}>Peak Player</h5>
                 <h5 style={{width:"25%", fontSize:"25px", textAlign:"center", color:"black"}}>Time</h5>
             </div>
-            {rows.map((item) => (
-                <div>
+            {rows.map((item, index) => (
+                <div key={index}>
                     {numberOne(item.key)}
                     <div style={{paddingTop:"18px"}}>
                         <div style={orderBackground(item.key)}>

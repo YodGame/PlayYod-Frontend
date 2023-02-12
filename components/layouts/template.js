@@ -4,19 +4,8 @@ import * as React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome , faGlobeAmericas ,faBars} from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
-import { API_URL } from "@/config";
-import axios from 'axios';
-
 
 export default function Template(props) {
-
-    axios.get(API_URL + "geo/players").then((response) => {
-        console.log(response);
-      })
-      .catch(() => {
-      });// test fetch API
-
-
     return (
         <>
             <Head>

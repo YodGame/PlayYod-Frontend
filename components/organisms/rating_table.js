@@ -85,18 +85,18 @@ export default function Rating_table() {
         <div style={{paddingTop:"213px"}}>
             <div style={{ height: "auto", width: "100%", backgroundColor:"#F6F6F6", borderRadius:"10px 19px 0px 0px"}}>
                 <div style={{paddingTop:"17px"}}>
-                    {rows.map((item) => (
-                        <div style={{paddingTop:"12px", paddingRight:"4%", paddingLeft:"4%"}}>
+                    {rows.map((item, index) => (
+                        <div style={{paddingTop:"12px", paddingRight:"4%", paddingLeft:"4%"}} key={index}>
                             <div style={{ backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"80px",paddingLeft:"3%", paddingRight:"3%"}} >
                                 <div style={{ width:"5%", margin:"auto"}}>
-                                    <h5 style={{fontSize:"16px", color:"black"}} key={item.key}>{item.order}</h5>
+                                    <h5 style={{fontSize:"16px", color:"black"}}>{item.order}</h5>
                                     {arrowColor(item.statusPlayer)}
                                 </div>
                                 <div style={{ width:"65%", margin:"auto", textAlign:"center"}}>
-                                    <h5 style={{fontSize:"16px", color:"black"}} key={item.key}>{item.country}</h5>
+                                    <h5 style={{fontSize:"16px", color:"black"}}>{item.country}</h5>
                                 </div>
                                 <div style={{ width:"30%", margin:"auto", textAlign:"center"}}>
-                                    <h5 style={{fontSize:"16px", color:"black"}} key={item.key}>{item.player}</h5>
+                                    <h5 style={{fontSize:"16px", color:"black"}}>{item.player}</h5>
                                 </div>
                             </div>
                         </div>
