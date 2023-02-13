@@ -102,26 +102,26 @@ export default function TopRecordTable(){
     return (
         <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%"}}>
             <div style={{display:"flex"}}>
-                <h5 style={{paddingLeft:"6%", width:"45%", fontSize:"25px"}}>name</h5>
-                <h5 style={{width:"30%", fontSize:"25px", textAlign:"center"}}>Peak Player</h5>
-                <h5 style={{width:"25%", fontSize:"25px", textAlign:"center"}}>Time</h5>
+                <h5 style={{paddingLeft:"6%", width:"45%", fontSize:"25px", color:"black"}}>name</h5>
+                <h5 style={{width:"30%", fontSize:"25px", textAlign:"center", color:"black"}}>Peak Player</h5>
+                <h5 style={{width:"25%", fontSize:"25px", textAlign:"center", color:"black"}}>Time</h5>
             </div>
-            {rows.map((item) => (
-                <div>
+            {rows.map((item, index) => (
+                <div key={index}>
                     {numberOne(item.key)}
                     <div style={{paddingTop:"18px"}}>
                         <div style={orderBackground(item.key)}>
                             <div style={{ width:"5%", margin:"auto"}}>
-                                <h5 style={{fontSize:"35px"}} key={item.key}>{item.key}. </h5>
+                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.key}. </h5>
                             </div>
                             <div style={{ width:"45%", margin:"auto"}}>
-                                <h5 style={{fontSize:"35px"}} key={item.key}>{item.GameName}</h5>
+                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.GameName}</h5>
                             </div>
                             <div style={{ width:"30%", margin:"auto", textAlign:"center"}}>
-                                <h5 style={{fontSize:"35px"}} key={item.key}>{item.PeakPlayer}</h5>
+                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.PeakPlayer}</h5>
                             </div>
                             <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
-                                <h5 style={{fontSize:"35px"}} key={item.key}>{item.Time}</h5>
+                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.Time}</h5>
                             </div>
                         </div>
                     </div>
