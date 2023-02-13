@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { API_URL } from "@/config";
 import axios from 'axios';
-export default function SearchBar() {
+    export default function SearchBar() {
+        
     let text = "";
 
     const [searchInput, setSearchInput] = useState("");
@@ -25,7 +26,6 @@ export default function SearchBar() {
         } else {
             document.getElementById("dropdown-list").innerHTML = "";
         };
-        
     };
 
     return (
@@ -40,6 +40,5 @@ export default function SearchBar() {
                     </div>
                 </div>
          </div>
-         
     )
 }
