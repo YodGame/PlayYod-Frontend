@@ -1,4 +1,4 @@
-const API_URL="http://127.0.0.1:8000/"
+const API_URL="https://api.playyod.maxnus.com/"
 exports.API_URL = API_URL
 
 // How to import from another file
