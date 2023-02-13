@@ -31,8 +31,12 @@ export default function Template(props) {
                             <Link className="nav-link" href="/geoGraph" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Geography</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" href="/topSeller" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Top Seller</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" href="/topRecord" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Top Record</Link>
                         </li>
+
                     </ul>
 
                 </div>
