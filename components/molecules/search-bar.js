@@ -1,13 +1,32 @@
 import React, {useState} from 'react'
+import { API_URL } from "@/config";
+import axios from 'axios';
 export default function SearchBar() {
+    let text = "";
 
     const [searchInput, setSearchInput] = useState("");
     const handleChange = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value);
         console.log(searchInput)
+        if (searchInput != "") {
+            axios.get(API_URL + "games/search/" + searchInput).then((response) => {
+                text = "";
+                console.log(response);
+                console.log(response.data[0].name);
+                response.data.forEach((product) => {
+                    console.log(product.name);
+                    text += "<a href='geo/game/" + product.appid + "'>" + product.name +"</a><br>";
+                    document.getElementById("dropdown-list").innerHTML = text;
+                })
+            })
+            .catch(() => {
+            });
+        } else {
+            document.getElementById("dropdown-list").innerHTML = "";
+        };
+        
     };
-
 
     return (
         <div style={{paddingLeft:"2%", paddingRight:"2%"}}>
@@ -16,8 +35,11 @@ export default function SearchBar() {
                            type="text"
                            placeholder="what geography would you like to see?"
                            onChange={handleChange}
-                           value={searchInput} />
+                           value={searchInput}/>
+                    <div id="dropdown-list">
+                    </div>
                 </div>
          </div>
+         
     )
 }
