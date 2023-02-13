@@ -37,7 +37,6 @@ export default function SearchBar() {
                            onChange={handleChange}
                            value={searchInput}/>
                     <div id="dropdown-list">
-                        {text}
                     </div>
                 </div>
          </div>
