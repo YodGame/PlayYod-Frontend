@@ -7,7 +7,7 @@ export default function topSeller() {
 
     return (
         <Template>
-            <div style={{height:"50px"}}>
+            <div style={{height:"50px",color:"black"}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top Seller</h1>
 
