@@ -32,7 +32,7 @@ if (!data) {
   return <div>Loading...</div>;
 } //Loading for fetching data finish
 
-  const subArray = data.slice(4, 11); //create for maping to add component in website
+  const subArray = data.slice(3, 11); //create for maping to add component in website
 
 console.log(data);
     return (
@@ -56,7 +56,7 @@ console.log(data);
             </Row>
             <div style={{paddingTop:"213px"}}>
             {subArray.map(data => (
-              <Rating_table rank={data.id} country={data.name} players={data.users}/>
+              <Rating_table rank={data.id+1} country={data.name} players={data.users}/>
       ))}
             </div>
         </Template>
