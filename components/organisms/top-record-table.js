@@ -1,7 +1,7 @@
 import React from 'react';
 import crown from '../../public/crown.svg';
 import Image from 'next/image'
-export default function TopRecordTable(){
+export default function TopRecordTable(props){
 
     const columns = [
         {
@@ -81,47 +81,52 @@ export default function TopRecordTable(){
     ];
 
     const orderBackground = (order) => {
-        switch (order) {
-            case "1":
-                return { backgroundColor:"#F75435", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
-            case "2":
-                return { backgroundColor:"#FDAE38", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
-            case "3":
-                return { backgroundColor:"#4FA3A5", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
-            default:
-                return { backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+        if (props.page === "topRecord") {
+            switch (order) {
+                case "1":
+                    return { backgroundColor:"#F75435", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+                case "2":
+                    return { backgroundColor:"#FDAE38", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+                case "3":
+                    return { backgroundColor:"#4FA3A5", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+                default:
+                    return { backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+            }
+        }
+        else {
+            return {borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
         }
     }
 
     const numberOne = (order) => {
-        if (order==="1"){
+        if (order==="1" && props.page==="topRecord"){
             return <Image src={crown} alt="icon-crown" style={{position:"absolute", marginLeft:"-15px", marginTop:"-8px"}} />
         }
     }
 
     return (
-        <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%"}}>
-            <div style={{display:"flex"}}>
-                <h5 style={{paddingLeft:"6%", width:"45%", fontSize:"25px", color:"black"}}>name</h5>
-                <h5 style={{width:"30%", fontSize:"25px", textAlign:"center", color:"black"}}>Peak Player</h5>
-                <h5 style={{width:"25%", fontSize:"25px", textAlign:"center", color:"black"}}>Time</h5>
+        <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%", color:props.color}}>
+            <div style={{display:"flex", fontSize:props.headerSize}}>
+                <h5 style={{paddingLeft:"12%", width:"55%"}}>name</h5>
+                <h5 style={{width:"20%", textAlign:"center"}}>Peak Player</h5>
+                <h5 style={{width:"20%", textAlign:"center"}}>Time</h5>
             </div>
             {rows.map((item, index) => (
                 <div key={index}>
                     {numberOne(item.key)}
-                    <div style={{paddingTop:"18px"}}>
+                    <div style={{paddingTop:props.distanceSequences, fontSize:props.fontSize}}>
                         <div style={orderBackground(item.key)}>
-                            <div style={{ width:"5%", margin:"auto"}}>
-                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.key}. </h5>
+                            <div style={{ width:"10%", margin:"auto"}}>
+                                <h5 key={item.key}>{item.key}. </h5>
                             </div>
-                            <div style={{ width:"45%", margin:"auto"}}>
-                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.GameName}</h5>
-                            </div>
-                            <div style={{ width:"30%", margin:"auto", textAlign:"center"}}>
-                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.PeakPlayer}</h5>
+                            <div style={{ width:"50%", margin:"auto"}}>
+                                <h5 key={item.key}>{item.GameName}</h5>
                             </div>
                             <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
-                                <h5 style={{fontSize:"35px", color:"black"}} key={item.key}>{item.Time}</h5>
+                                <h5 key={item.key}>{item.PeakPlayer}</h5>
+                            </div>
+                            <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
+                                <h5 key={item.key}>{item.Time}</h5>
                             </div>
                         </div>
                     </div>
