@@ -20,7 +20,7 @@ export default function topRecord() {
             </div>
             <div style={{width:650,margin:"auto"}}><LineGraph/></div>
             <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
-                <TopRecordTable color="black" page="topRecord" fontSize="35px" distanceSequences="18px" headerSize="25px"/>
+                <TopRecordTable color="black" page="topRecord" fontSize="35px" headerSize="25px"/>
             </div>
 
 

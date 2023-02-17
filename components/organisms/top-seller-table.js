@@ -68,7 +68,7 @@ export default function TopSellerTable(props){
             }
         }
         else {
-            return { borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+            return { borderRadius:"10px", width: "100%", display:"flex", height:"30px",paddingLeft:"3%", paddingRight:"3%"}
         }
     }
 
@@ -88,7 +88,7 @@ export default function TopSellerTable(props){
             {rows.map((item, index) => (
                 <div key={index}>
                     {numberOne(item.key)}
-                    <div style={{paddingTop:props.distanceSequences, fontSize:props.fontSize}}>
+                    <div style={{paddingTop:"18px", fontSize:props.fontSize}}>
                         <div style={orderBackground(item.key)}>
                             <div style={{ width:"10%", margin:"auto"}}>
                                 <h5 key={item.key}>{item.key}. </h5>

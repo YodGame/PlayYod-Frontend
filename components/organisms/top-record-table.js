@@ -94,7 +94,7 @@ export default function TopRecordTable(props){
             }
         }
         else {
-            return {borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+            return {borderRadius:"10px", width: "100%", display:"flex", height:"30px",paddingLeft:"3%", paddingRight:"3%"}
         }
     }
 
@@ -106,15 +106,15 @@ export default function TopRecordTable(props){
 
     return (
         <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%", color:props.color}}>
-            <div style={{display:"flex", fontSize:props.headerSize}}>
-                <h5 style={{paddingLeft:"12%", width:"55%"}}>name</h5>
-                <h5 style={{width:"20%", textAlign:"center"}}>Peak Player</h5>
-                <h5 style={{width:"20%", textAlign:"center"}}>Time</h5>
+            <div style={{display:"flex"}}>
+                <h5 style={{paddingLeft:"12%", width:"55%", fontSize:props.headerSize}}>name</h5>
+                <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Peak Player</h5>
+                <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Time</h5>
             </div>
             {rows.map((item, index) => (
                 <div key={index}>
                     {numberOne(item.key)}
-                    <div style={{paddingTop:props.distanceSequences, fontSize:props.fontSize}}>
+                    <div style={{paddingTop:"18px", fontSize:props.fontSize}}>
                         <div style={orderBackground(item.key)}>
                             <div style={{ width:"10%", margin:"auto"}}>
                                 <h5 key={item.key}>{item.key}. </h5>

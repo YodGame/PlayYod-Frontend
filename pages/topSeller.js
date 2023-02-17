@@ -13,7 +13,7 @@ export default function topSeller() {
                 </div>
             </div>
             <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
-                <TopSellerTable color="black" page="topSeller" distanceSequences="18px" fontSize="35px" headerSize="25px"/>
+                <TopSellerTable color="black" page="topSeller" fontSize="35px" headerSize="25px"/>
             </div>
         </Template>
     )
