@@ -32,10 +32,10 @@ export default function Index() {
                         <div style={{ textAlign:"center", paddingTop:"13px"}}>
                             <Link href="/topRecord">
                                 <Button size="sm" style={{backgroundColor:"#F0F1F1", borderColor:"#F0F1F1", cursor: "pointer", width:"90%", borderRadius:"5px", color:"#4FA3A5", fontSize:"18px"}}>
-                                    <div style={{display:"flex"}}>
-                                        <label style={{paddingLeft:"15%"}}>More</label>
-                                        <label style={{paddingLeft:"63%"}}><BsArrowRight/></label>
-                                    </div>
+                                        <div style={{display:"flex"}}>
+                                            <label style={{paddingLeft:"15%"}}>More</label>
+                                            <label style={{paddingLeft:"63%"}}><BsArrowRight/></label>
+                                        </div>
                                 </Button>
                             </Link>
                         </div>

@@ -55,9 +55,11 @@ console.log(data);
                 </Col>
             </Row>
             <div style={{paddingTop:"213px"}}>
-            {subArray.map(data => (
-              <Rating_table rank={data.id+1} country={data.name} players={data.users}/>
-      ))}
+                <div style={{backgroundColor:"#F6F6F6", borderRadius:"10px 19px 0px 0px"}}>
+                    {subArray.map(data => (
+                        <Rating_table rank={data.id+1} country={data.name} players={data.users}/>
+                    ))}
+                </div>
             </div>
         </Template>
     )
