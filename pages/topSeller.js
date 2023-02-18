@@ -1,5 +1,6 @@
 import Template from "@/components/layouts/template";
 import TopSellerTable from "../components/organisms/top-seller-table"
+import SelectDateSeller from "@/components/molecules/select-date-seller";
 
 
 export default function topSeller() {
@@ -10,6 +11,9 @@ export default function topSeller() {
             <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal"}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top Seller</h1>
+                </div>
+                <div style={{paddingTop:"15px" ,paddingRight:"5%"}}>
+                    <SelectDateSeller/>
                 </div>
             </div>
             <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
