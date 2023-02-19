@@ -1,6 +1,8 @@
 import Template from "@/components/layouts/template";
 import TopSellerTable from "../components/organisms/top-seller-table"
-
+import {useState, useEffect} from 'react'
+import { API_URL } from "@/config";
+import axios from 'axios';
 
 export default function topSeller() {
 
