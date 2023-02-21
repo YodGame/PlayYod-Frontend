@@ -1,4 +1,5 @@
 import Template from "@/components/layouts/template";
+import SelectDateSeller from "../components/molecules/select-date-seller"
 import TopSellerTable from "../components/organisms/top-seller-table"
 import {useState, useEffect} from 'react'
 import { API_URL } from "@/config";
@@ -34,11 +35,11 @@ export default function topSeller() {
                     <h1 style={{fontSize:"30px"}}>Top Seller</h1>
                 </div>
                 <div style={{paddingTop:"15px" ,paddingRight:"5%"}}>
-                    <SelectDateSeller/>
+                    {/* <SelectDateSeller/> */}
                 </div>
             </div>
             <div>
-                <SelectDate/>
+                {/* <SelectDate/> */}
             </div>
             <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
                 <TopSellerTable color="black" page="topSeller" fontSize="35px" headerSize="25px" row={data}/>

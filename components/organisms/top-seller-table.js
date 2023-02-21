@@ -17,11 +17,11 @@ export default function TopSellerTable(props){
     const orderBackground = (order) => {
         if (props.page === "topSeller") {
             switch (order) {
-                case "1":
+                case 1:
                     return { backgroundColor:"#F75435", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
-                case "2":
+                case 2:
                     return { backgroundColor:"#FDAE38", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
-                case "3":
+                case 3:
                     return { backgroundColor:"#4FA3A5", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
                 default:
                     return { backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
@@ -33,7 +33,7 @@ export default function TopSellerTable(props){
     }
 
     const numberOne = (order) => {
-        if (order==="1" && props.page==="topSeller"){
+        if (order=="1" && props.page=="topSeller"){
             return <Image src={crown} alt="icon-crown" style={{position:"absolute", marginLeft:"-15px", marginTop:"-8px"}} />
         }
     }

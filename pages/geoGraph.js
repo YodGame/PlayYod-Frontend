@@ -18,8 +18,9 @@ export default function Geography() {
         const newData = response.data.map((item, index) => {
 
           return {
-            ...item,
-            id: index
+            id: index,
+            ...item
+            
           };
 //item is object in API ---> id is index of object ---> mapping to add in object
         });

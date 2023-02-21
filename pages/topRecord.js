@@ -2,9 +2,32 @@ import Template from "@/components/layouts/template";
 import TopRecordTable from '../components/organisms/top-record-table'
 import SelectDate from "@/components/molecules/select-date";
 import LineGraph from "@/components/molecules/line-graph";
+import {useState, useEffect} from 'react'
+import { API_URL } from "@/config";
+import axios from 'axios';
 
 
 export default function topRecord() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get(API_URL + "top/records")
+            .then(response => {
+                const newData = response.data.map((item, index) => {
+        
+                  return {
+                    id: index + 1,
+                    ...item
+                    
+                  };
+
+                });
+                setData(newData);
+            })
+            .catch(error => console.log(error));
+      }, []);
+      console.log(data);
 
 
     return (
@@ -20,7 +43,7 @@ export default function topRecord() {
             </div>
             <div style={{width:650,margin:"auto"}}><LineGraph/></div>
             <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
-                <TopRecordTable color="black" page="topRecord" fontSize="35px" headerSize="25px"/>
+                <TopRecordTable color="black" page="topRecord" fontSize="35px" headerSize="25px" row={data}/>
             </div>
 
 
