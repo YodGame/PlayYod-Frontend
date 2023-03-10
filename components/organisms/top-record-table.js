@@ -42,6 +42,9 @@ export default function TopRecordTable(props){
             return <Image src={crown} alt="icon-crown" style={{position:"absolute", marginLeft:"-15px", marginTop:"-8px"}} />
         }
     }
+    if (!rows) {
+        return null
+    }
 
     return (
         <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%", color:props.color}}>
@@ -50,13 +53,14 @@ export default function TopRecordTable(props){
                 <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Peak Player</h5>
                 <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Time</h5>
             </div>
+
             {rows.map((item) => (
                 <div key={item.id}>
                     {numberOne(item.id)}
                     <div style={{paddingTop:"18px", fontSize:props.fontSize}}>
                         <div style={orderBackground(item.id)}>
                             <div style={{ width:"10%", margin:"auto"}}>
-                                <h5 key={item.id}>{item.id}. </h5> 
+                                <h5 key={item.id}>{item.id}. </h5>
                                 {/* INDEX */}
                             </div>
                             <div style={{ width:"50%", margin:"auto"}}>
