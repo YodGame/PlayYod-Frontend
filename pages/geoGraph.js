@@ -11,7 +11,7 @@ import axios from 'axios';
 export default function Geography() {
 
   const [data, setData] = useState(null);
-
+  
   useEffect(() => {
     axios.get(API_URL + "geo/players")
       .then(response => {
@@ -34,6 +34,9 @@ if (!data) {
 } //Loading for fetching data finish
 
   const subArray = data.slice(3, 11); //create for maping to add component in website
+const checkFlag = (country) => {
+  return '/nation-flag/' + country +'.svg'
+}
 
 console.log(data);
     return (
@@ -41,18 +44,18 @@ console.log(data);
         <Template>
             <h1 style={{fontSize: "30px", color:"black"}}>Steam Active Players</h1>
             <br/>
-            <GeographyTemplate/>
+            <GeographyTemplate data={data}/>
             <br/>
             <h1 style={{fontSize: "30px", color:"black"}}>Top Geography</h1>
             <Row style={{paddingLeft:'160px'}}>
                 <Col style={{marginTop:34}}>
-                    <TopThreeCountry style="top3" countryName={data[2].name} rate="3" backgroundColor="#4FA3A5" height="112px" margin="68" img="/nation-flag/cn.svg" />
+                    <TopThreeCountry style="top1" countryName={data[1].name} rate="2" backgroundColor="#FDAE38" height ="146px" margin="34" img={checkFlag(data[1].name)} />
                 </Col>
                 <Col>
-                    <TopThreeCountry countryName={data[0].name} style="top2" rate="1" backgroundColor="#F75435" height ="180px" img="/nation-flag/br.svg" />
+                    <TopThreeCountry countryName={data[0].name} style="top2" rate="1" backgroundColor="#F75435" height ="180px" img={checkFlag(data[0].name)} />
                 </Col>
                 <Col style={{marginTop:68}}>
-                    <TopThreeCountry style="top3" countryName={data[2].name} rate="3" backgroundColor="#4FA3A5" height ="112px" margin="68" img="/nation-flag/cn.svg" />
+                    <TopThreeCountry style="top3" countryName={data[2].name} rate="3" backgroundColor="#4FA3A5" height ="112px" margin="68" img={checkFlag(data[2].name)} />
                 </Col>
             </Row>
             <div style={{paddingTop:"213px"}}>

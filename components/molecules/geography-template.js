@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 
-const GeographyTemplate = () => {
+const GeographyTemplate = (props) => {
     const [hasError, setErrors] = useState(false);
-    const [country, setUsers] = useState({});
     const [newArray, setNewArray] = useState([]);
 
-    async function fetchData() {
+    function fetchData() {
         try {
-            const res = await fetch("https://api.playyod.maxnus.com/geo/players");
-            const data = await res.json();
-            setUsers(data);
-            const newArray = data.map(({ name, users }) => [name, users]);
+            const newArray = props.data.map(({ name, users }) => [name, users]);
             newArray.unshift(["name", "users"]);
             setNewArray(newArray);
+            console.log(newArray);
         } catch (err) {
             setErrors(err);
         }
