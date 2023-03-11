@@ -1,42 +1,36 @@
-import React from "react";
-import {Chart} from "react-google-charts";
+import React, { useState, useEffect } from "react";
+import { Chart } from "react-google-charts";
 
-const data = [
-    ["Country", "Popularity"],
-    ["Germany", 200],
-    ["Canada", 500],
-    ["France", 600],
-    ["China",1439323776],
-    ["India",1380004385],
-    ["United States",338002651],
-    ["Indonesia",275908026],
-    ["Mexico",127724673],
-    ["Pakistan",236882454],
-    ["Mexico",127724673],
-    ["Japan",123801638],
-    ["Nigeria",219741895],
-    ["Ethiopia",124095535],
-    ["Brazil",215538160],
-    ["Philippines",115969226],
-    ["Bangladesh",171594827],
-    ["Egypt",111384124],
-];
+const GeographyTemplate = (props) => {
+    const [hasError, setErrors] = useState(false);
+    const [newArray, setNewArray] = useState([]);
 
-class GeographyTemplate extends React.Component {
-    constructor(props) {
-        super(props);
+    function fetchData() {
+        try {
+            const newArray = props.data.map(({ name, users }) => [name, users]);
+            newArray.unshift(["name", "users"]);
+            setNewArray(newArray);
+            console.log(newArray);
+        } catch (err) {
+            setErrors(err);
+        }
     }
-    render() {
 
-        return (
-            <div className="App">
+    useEffect(() => {
+        fetchData();
+    }, []);
 
-                <Chart  chartType="GeoChart" width="100%" height="400px" data={data} color/>
-
-            </div>
-        );
-    }
-}
-
+    return (
+        <div className="App">
+            <Chart
+                chartType="GeoChart"
+                width="100%"
+                height="400px"
+                data={newArray}
+                color
+            />
+        </div>
+    );
+};
 
 export default GeographyTemplate;

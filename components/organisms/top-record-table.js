@@ -5,128 +5,75 @@ export default function TopRecordTable(props){
 
     const columns = [
         {
-            key: "GameName",
+            key: "name",
             label: "name",
         },
         {
-            key: "PeakPlayer",
+            key: "players",
             label: "Peak Players",
         },
         {
-            key: "Time",
+            key: "time",
             label: "Time",
         },
     ];
-    const rows = [
-        {
-            key: "1",
-            GameName: "PUBG",
-            PeakPlayer: "3,236,027",
-            Time: "Jan 2018"
-        },
-        {
-            key: "2",
-            GameName: "Lost Ark",
-            PeakPlayer: "1,324,761",
-            Time: "Feb 2022"
-        },
-        {
-            key: "3",
-            GameName: "Counter-Strike",
-            PeakPlayer: "1,305,714",
-            Time: "Apr 2020"
-        },
-        {
-            key: "4",
-            GameName: "Dota2",
-            PeakPlayer: "1,291,328",
-            Time: "Mar 2016"
-        },
-        {
-            key: "5",
-            GameName: "ELDEN RING",
-            PeakPlayer: "952,523",
-            Time: "Mar 2022"
-        },
-        {
-            key: "6",
-            GameName: "Game Name",
-            PeakPlayer: "952,523",
-            Time: "Mar 2022"
-        },
-        {
-            key: "7",
-            GameName: "Game Name",
-            PeakPlayer: "952,523",
-            Time: "Mar 2022"
-        },
-        {
-            key: "8",
-            GameName: "Game Name",
-            PeakPlayer: "952,523",
-            Time: "Mar 2022"
-        },
-        {
-            key: "9",
-            GameName: "Game Name",
-            PeakPlayer: "952,523",
-            Time: "Mar 2022"
-        },
-        {
-            key: "10",
-            GameName: "Game Name",
-            PeakPlayer: "952,523",
-            Time: "Mar 2022"
-        },
-    ];
+    const rows = props.row;
 
     const orderBackground = (order) => {
-        if (props.page === "topRecord") {
+        if (props.page == "topRecord") {
             switch (order) {
-                case "1":
+                case 1:
                     return { backgroundColor:"#F75435", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
-                case "2":
+                case 2:
                     return { backgroundColor:"#FDAE38", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
-                case "3":
+                case 3:
                     return { backgroundColor:"#4FA3A5", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
                 default:
                     return { backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
             }
         }
         else {
-            return {borderRadius:"10px", width: "100%", display:"flex", height:"81px",paddingLeft:"3%", paddingRight:"3%"}
+            return {borderRadius:"10px", width: "100%", display:"flex", height:"30px",paddingLeft:"3%", paddingRight:"3%"}
         }
     }
 
     const numberOne = (order) => {
-        if (order==="1" && props.page==="topRecord"){
+        if (order=="1" && props.page=="topRecord"){
             return <Image src={crown} alt="icon-crown" style={{position:"absolute", marginLeft:"-15px", marginTop:"-8px"}} />
         }
+    }
+    if (!rows) {
+        return null
     }
 
     return (
         <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%", color:props.color}}>
-            <div style={{display:"flex", fontSize:props.headerSize}}>
-                <h5 style={{paddingLeft:"12%", width:"55%"}}>name</h5>
-                <h5 style={{width:"20%", textAlign:"center"}}>Peak Player</h5>
-                <h5 style={{width:"20%", textAlign:"center"}}>Time</h5>
+            <div style={{display:"flex"}}>
+                <h5 style={{paddingLeft:"12%", width:"55%", fontSize:props.headerSize}}>name</h5>
+                <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Peak Player</h5>
+                <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Time</h5>
             </div>
-            {rows.map((item, index) => (
-                <div key={index}>
-                    {numberOne(item.key)}
-                    <div style={{paddingTop:props.distanceSequences, fontSize:props.fontSize}}>
-                        <div style={orderBackground(item.key)}>
+
+            {rows.map((item) => (
+                <div key={item.id}>
+                    {numberOne(item.id)}
+                    <div style={{paddingTop:"18px", fontSize:props.fontSize}}>
+                        <div style={orderBackground(item.id)}>
                             <div style={{ width:"10%", margin:"auto"}}>
-                                <h5 key={item.key}>{item.key}. </h5>
+                                <h5 key={item.id}>{item.id}. </h5>
+                                {/* INDEX */}
                             </div>
                             <div style={{ width:"50%", margin:"auto"}}>
-                                <h5 key={item.key}>{item.GameName}</h5>
+                                <h5 key={item.id}>{item.name}</h5>
+                                {/* NAME */}
                             </div>
                             <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
-                                <h5 key={item.key}>{item.PeakPlayer}</h5>
+                                <h5 key={item.id}>{item.players}</h5>
+                                {/* PLAYERS */}
                             </div>
                             <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
-                                <h5 key={item.key}>{item.Time}</h5>
+                                <h5 key={item.id}>{item.time}</h5>
+                                {/* TIME */}
                             </div>
                         </div>
                     </div>

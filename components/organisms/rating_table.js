@@ -12,8 +12,8 @@ export default function Rating_table(props) {
 
     return (
         <div>
-            <div style={{ height: "auto", width: "100%", backgroundColor:"#F6F6F6", borderRadius:"10px 19px 0px 0px"}}>
-                <div style={{paddingTop:"17px"}}>
+            <div style={{ height: "auto", width: "100%"}}>
+                <div style={{paddingTop:"17px", paddingBottom:"17px"}}>
                     {/* {rows.map((item, index) => ( */}
                         <div style={{paddingTop:"12px", paddingRight:"4%", paddingLeft:"4%"}} >
                             <div style={{ backgroundColor:"white", borderRadius:"10px", width: "100%", display:"flex", height:"80px",paddingLeft:"3%", paddingRight:"3%"}} >

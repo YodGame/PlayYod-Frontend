@@ -3,7 +3,14 @@ import Script from "next/script";
 import * as React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome , faGlobeAmericas ,faBars} from '@fortawesome/free-solid-svg-icons';
+import {BsGraphUp} from "react-icons/bs";
+import { VscGraphLine } from "react-icons/vsc";
 import Link from "next/link";
+
+function BootstrapIcon(props) {
+    return null;
+}
+
 
 export default function Template(props) {
     return (
@@ -31,10 +38,10 @@ export default function Template(props) {
                             <Link className="nav-link" href="/geoGraph" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Geography</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/topSeller" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Top Seller</Link>
+                            <Link className="nav-link" href="/topSeller" style={{color:"#0F1C3C",}} ><BsGraphUp className="nav-icon" icon={BsGraphUp} style={{color:"#0F1C3C"}}/> Top Seller</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/topRecord" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Top Record</Link>
+                            <Link className="nav-link" href="/topRecord" style={{color:"#0F1C3C",}} ><VscGraphLine className="nav-icon" icon={VscGraphLine} style={{color:"#0F1C3C"}}/> Top Record</Link>
                         </li>
 
                     </ul>
