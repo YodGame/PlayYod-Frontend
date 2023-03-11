@@ -11,11 +11,7 @@ export default function Rating_table(props) {
         }
     }
     const formatNumber = (number) => {
-        if (isNumber(number)) {
-            return number.toLocaleString()
-        } else {
-            return number
-        }
+        return number.toLocaleString()
     }
 
     return (
