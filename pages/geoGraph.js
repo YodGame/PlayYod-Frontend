@@ -49,10 +49,10 @@ console.log(data);
             <h1 style={{fontSize: "30px", color:"black"}}>Top Geography</h1>
             <Row style={{paddingLeft:'160px'}}>
                 <Col style={{marginTop:34}}>
-                    <TopThreeCountry style="top1" countryName={data[1].name} rate="2" backgroundColor="#FDAE38" height ="146px" margin="34" img={checkFlag(data[1].name)} />
+                    <TopThreeCountry style="top2" countryName={data[1].name} rate="2" backgroundColor="#FDAE38" height ="146px" margin="auto" img={checkFlag(data[1].name)} />
                 </Col>
                 <Col>
-                    <TopThreeCountry countryName={data[0].name} style="top2" rate="1" backgroundColor="#F75435" height ="180px" img={checkFlag(data[0].name)} />
+                    <TopThreeCountry countryName={data[0].name} style="top1" rate="1" backgroundColor="#F75435" height ="180px" img={checkFlag(data[0].name)} />
                 </Col>
                 <Col style={{marginTop:68}}>
                     <TopThreeCountry style="top3" countryName={data[2].name} rate="3" backgroundColor="#4FA3A5" height ="112px" margin="68" img={checkFlag(data[2].name)} />

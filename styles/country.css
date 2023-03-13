@@ -6,10 +6,8 @@
     text-align:center;
 }
 .ratingNumber{
-    padding-left:70px;
     font-size:40px;
     color:white;
-    position:absolute;
 }
 .img{
     margin-top:-120px;
@@ -21,7 +19,6 @@
 }
 .country{
     padding-top: 12px;
-    padding-left:30px;
     font-size: 23px;
     color:white;
 }
