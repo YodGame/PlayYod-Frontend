@@ -11,7 +11,8 @@ import axios from 'axios';
 export default function Geography() {
 
   const [data, setData] = useState(null);
-  
+  const [users,setNumberUser] = useState([])
+
   useEffect(() => {
     axios.get(API_URL + "geo/players")
       .then(response => {
@@ -24,7 +25,8 @@ export default function Geography() {
           };
 //item is object in API ---> id is index of object ---> mapping to add in object
         });
-        setData(newData);
+        newData.sort((a, b) => b.users - a.users)
+          setData(newData);
       }
     );
   }, []);
