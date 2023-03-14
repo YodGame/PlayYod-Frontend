@@ -13,7 +13,6 @@ export default function TopSellerTable(props){
 
     const rows = props.row;
 
-
     const orderBackground = (order) => {
         if (props.page === "topSeller") {
             switch (order) {
@@ -38,6 +37,10 @@ export default function TopSellerTable(props){
         }
     }
 
+    if(props.row == null){
+        return null;
+    }
+    
     return (
         <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%", color:props.color}}>
             <div style={{display:"flex"}}>
