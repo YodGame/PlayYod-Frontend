@@ -51,7 +51,7 @@ export default function Index() {
                         <h1 style={{fontSize:"30px",paddingLeft:"15%", paddingTop:"23px"}}>Top seller</h1>
                         <TopSellerTable fontSize="25px" headerSize="15px" row={ten_top_seller}/>
                         <div style={{ textAlign:"center", paddingTop:"13px"}}>
-                            <Link href="/topRecord">
+                            <Link href="/topSeller">
                                 <Button size="sm" style={{backgroundColor:"#F0F1F1", borderColor:"#F0F1F1", cursor: "pointer", width:"90%", borderRadius:"5px", color:"#FDAE38", fontSize:"18px"}}>
                                     <div style={{display:"flex"}}>
                                         <label style={{paddingLeft:"15%"}}>More</label>
@@ -83,12 +83,12 @@ export default function Index() {
 
             <div style={{display:"flex", color:"white", fontFamily: 'Inter', fontStyle: "normal" , paddingTop:'30px'}}>
                 <div style={{width:"50%", paddingRight:"10px"}}>
-                    <div style={{backgroundColor:"#FDAE38", borderRadius:"30px", paddingBottom:"15px"}}>
-                        <h1 style={{fontSize:"30px",paddingLeft:"15%", paddingTop:"23px"}}>Top Pleyers Today</h1>
+                    <div style={{backgroundColor:"#185095", borderRadius:"30px", paddingBottom:"15px"}}>
+                        <h1 style={{fontSize:"30px",paddingLeft:"15%", paddingTop:"23px"}}>Top Players Today</h1>
                         <TopPlayersTable fontSize="25px" headerSize="15px" row={ten_players_today}/>
                         <div style={{ textAlign:"center", paddingTop:"13px"}}>
-                            <Link href="/topRecord">
-                                <Button size="sm" style={{backgroundColor:"#F0F1F1", borderColor:"#F0F1F1", cursor: "pointer", width:"90%", borderRadius:"5px", color:"#FDAE38", fontSize:"18px"}}>
+                            <Link href="/topPlayersToday">
+                                <Button size="sm" style={{backgroundColor:"#F0F1F1", borderColor:"#F0F1F1", cursor: "pointer", width:"90%", borderRadius:"5px", color:"#185095", fontSize:"18px"}}>
                                     <div style={{display:"flex"}}>
                                         <label style={{paddingLeft:"15%"}}>More</label>
                                         <label style={{paddingLeft:"63%"}}><BsArrowRight/></label>
@@ -100,12 +100,12 @@ export default function Index() {
                 </div>
 
                 <div style={{width:"50%", paddingLeft:"10px"}}>
-                    <div style={{backgroundColor:"#4FA3A5", borderRadius:"30px", paddingBottom:"15px"}}>
+                    <div style={{backgroundColor:"#F75435", borderRadius:"30px", paddingBottom:"15px"}}>
                         <h1 style={{fontSize:"30px", paddingLeft:"15%", paddingTop:"23px"}}>Top Players 7 Days</h1>
                         <TopPlayers7Table fontSize="25px" headerSize="15px" row={ten_players_7days}/>
                         <div style={{ textAlign:"center", paddingTop:"13px"}}>
-                            <Link href="/topRecord">
-                                <Button size="sm" style={{backgroundColor:"#F0F1F1", borderColor:"#F0F1F1", cursor: "pointer", width:"90%", borderRadius:"5px", color:"#4FA3A5", fontSize:"18px"}}>
+                            <Link href="/topPlayers7Day">
+                                <Button size="sm" style={{backgroundColor:"#F0F1F1", borderColor:"#F0F1F1", cursor: "pointer", width:"90%", borderRadius:"5px", color:"#F75435", fontSize:"18px"}}>
                                         <div style={{display:"flex"}}>
                                             <label style={{paddingLeft:"15%"}}>More</label>
                                             <label style={{paddingLeft:"63%"}}><BsArrowRight/></label>

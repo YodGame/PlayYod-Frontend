@@ -38,7 +38,6 @@ export default function topPlayers7Day() {
                 </div>
 
                 <div style={{paddingTop:"15px" ,paddingRight:"5%"}}>
-                    <SelectDate/>
                 </div>
             </div>
             <div style={{width:650,margin:"auto"}}><LineGraph/></div>
