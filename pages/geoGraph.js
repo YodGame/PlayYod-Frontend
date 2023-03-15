@@ -11,7 +11,6 @@ import axios from 'axios';
 export default function Geography() {
 
   const [data, setData] = useState(null);
-  const [users,setNumberUser] = useState([])
 
   useEffect(() => {
     axios.get(API_URL + "geo/players")
@@ -35,7 +34,7 @@ if (!data) {
   return <div>Loading...</div>;
 } //Loading for fetching data finish
 
-  const subArray = data.slice(3, 11); //create for maping to add component in website
+  const subArray = data.slice(3); //create for maping to add component in website
 const checkFlag = (country) => {
   return '/nation-flag/' + country +'.svg'
 }
