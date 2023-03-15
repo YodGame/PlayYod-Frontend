@@ -11,7 +11,8 @@ import axios from 'axios';
 export default function Geography() {
 
   const [data, setData] = useState(null);
-  
+  const [users,setNumberUser] = useState([])
+
   useEffect(() => {
     axios.get(API_URL + "geo/players")
       .then(response => {
@@ -24,6 +25,7 @@ export default function Geography() {
           };
 //item is object in API ---> id is index of object ---> mapping to add in object
         });
+        newData.sort((a, b) => b.users - a.users)
         setData(newData);
       }
     );
@@ -58,13 +60,7 @@ console.log(data);
                     <TopThreeCountry style="top3" countryName={data[2].name} rate="3" backgroundColor="#4FA3A5" height ="112px" margin="68" img={checkFlag(data[2].name)} />
                 </Col>
             </Row>
-            <div style={{paddingTop:"213px"}}>
-                <div style={{backgroundColor:"#F6F6F6", borderRadius:"10px 19px 0px 0px"}}>
-                    {subArray.map(data => (
-                        <Rating_table rank={data.id+1} country={data.name} players={data.users}/>
-                    ))}
-                </div>
-            </div>
+            <Rating_table data={subArray}/>
         </Template>
     )
 }
