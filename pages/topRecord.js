@@ -15,11 +15,11 @@ export default function topRecord() {
         axios.get(API_URL + "top/records")
             .then(response => {
                 const newData = response.data.map((item, index) => {
-        
+
                   return {
                     id: index + 1,
                     ...item
-                    
+
                   };
 
                 });
@@ -32,7 +32,7 @@ export default function topRecord() {
 
     return (
         <Template>
-            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal"}}>
+            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal",padding:30}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top records</h1>
                 </div>

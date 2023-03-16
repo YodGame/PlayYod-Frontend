@@ -47,7 +47,7 @@ export default function Template(props) {
 
                 </div>
                 <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-                    <header className="header header-sticky mb-4">
+                    <header className="header header-sticky">
                         <div className="container-fluid">
                             <ul className="header-nav ms-auto">
                             </ul>
@@ -60,14 +60,14 @@ export default function Template(props) {
                                         <div className="dropdown-header bg-light py-2">
                                             <div className="fw-semibold">Account</div>
                                         </div>
-                                        <a className="dropdown-item" href="#">Lock Account</a>
+                                        <a className="dropdown-item" href="/login">Login</a>
                                         <a className="dropdown-item" href="#">Logout</a>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </header>
-                    <div className="body flex-grow-1 px-3">
+                    <div className="body flex-grow-1">
                         {props.children}
                     </div>
                     <footer className="footer">

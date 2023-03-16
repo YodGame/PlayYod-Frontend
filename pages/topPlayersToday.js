@@ -1,6 +1,5 @@
 import Template from "@/components/layouts/template";
 import TopPlayersTable from '../components/organisms/top-players-table';
-import SelectDate from "@/components/molecules/select-date";
 import LineGraph from "@/components/molecules/line-graph";
 import {useState, useEffect} from 'react'
 import { API_URL } from "@/config";
@@ -32,7 +31,7 @@ export default function topPlayersToday() {
 
     return (
         <Template>
-            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal"}}>
+            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal",padding:30}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top Player Today</h1>
                 </div>

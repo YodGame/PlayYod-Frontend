@@ -43,6 +43,7 @@ console.log(data);
     return (
 
         <Template>
+            <div style={{padding:30}}>
             <h1 style={{fontSize: "30px", color:"black"}}>Steam Active Players</h1>
             <br/>
             <GeographyTemplate data={data}/>
@@ -60,6 +61,7 @@ console.log(data);
                 </Col>
             </Row>
             <Rating_table data={subArray}/>
+            </div>
         </Template>
     )
 }
