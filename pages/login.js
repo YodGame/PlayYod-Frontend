@@ -1,18 +1,48 @@
 import Template from "@/components/layouts/template";
 import React, {useState} from 'react'
 import Row from "react-bootstrap/Row";
+import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
 
 export default function Geography() {
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
     const [visible] = useState(true);
+    const [isShownPassword, setIsShownPassword] = useState(false);
+    const [isShownConfirmPassword, setIsShownConfirmPassword] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("username :" ,username)
         console.log("password :" ,password)
-
     }
+    const checkOpenPassword = () => {
+        setIsShownPassword(!isShownPassword)
+    }
+    const checkOpenConfirmPassword = () => {
+        setIsShownConfirmPassword(!isShownConfirmPassword)
+    }
+    const typePassword = () => {
+        if (isShownPassword) {
+            return "text"
+        } else {
+            return "password"
+        }
+    }
+    const iconConfirmPassword = () => {
+        if (isShownConfirmPassword) {
+            return <AiOutlineEye color="#B3B3B3" size="24px" />
+        } else {
+            return <AiOutlineEyeInvisible color="#B3B3B3" size="24px" />
+        }
+    }
+    const iconPassword = () => {
+        if (isShownPassword) {
+            return <AiOutlineEye color="#B3B3B3" size="24px" />
+        } else {
+            return <AiOutlineEyeInvisible color="#B3B3B3" size="24px" />
+        }
+    }
+
     return (
         <Template>
             <div style={{backgroundColor:"#E9F3FF",height:"100vh"}}>
@@ -29,10 +59,14 @@ export default function Geography() {
                             <input style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}
                                    placeholder={"username or E-mail"} type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         </Row>
-                        <Row style={{marginLeft:"8%"}}>
-                            <input style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}
-                                placeholder={"password"} type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                        </Row>
+                        <form style={{padding:"0px 40px"}}>
+                             <div style={{position:"relative"}}>
+                                    <a onClick={checkOpenPassword} style={{right:"20px", position:"absolute",  paddingTop:"8px"}}>
+                                        {iconPassword()}
+                                    </a>
+                                    <input className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}/>
+                            </div>
+                        </form>
                         <Row style={{fontSize:"12px",marginLeft:"66%"}}>
                             <a style={{color:"#185095"}}>Forgot Password?</a>
                         </Row>
