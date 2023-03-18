@@ -69,7 +69,7 @@ export default function NewPassword() {
                             <a style={{fontSize:"25px"}}>Create new password</a>
                         </Row>
 
-                        <form style={{marginLeft:"5%"}}>
+                        <form style={{marginLeft:"5%",marginTop:"60px"}}>
                             <a style={{color:"#185095",marginLeft:"8%"}}>New Password</a>
                             <div style={{position:"relative"}}>
                                 <a onClick={checkOpenPassword} style={{right:"60px", position:"absolute",  paddingTop:"8px"}}>
@@ -80,7 +80,7 @@ export default function NewPassword() {
                                 </Row>
                             </div>
                         </form>
-                        <form style={{marginLeft:"5%"}}>
+                        <form style={{marginLeft:"5%",paddingTop:"10px"}}>
                             <a style={{color:"#185095",marginLeft:"8%"}}>Confirm Password</a>
                             <div style={{position:"relative"}}>
                                 <a onClick={checkOpenConfirmPassword} style={{right:"60px", position:"absolute",  paddingTop:"8px"}}>
