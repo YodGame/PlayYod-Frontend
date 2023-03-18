@@ -59,13 +59,15 @@ export default function Geography() {
                             <input style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}
                                    placeholder={"username or E-mail"} type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         </Row>
-                        <form style={{padding:"0px 40px"}}>
+                        <form style={{marginLeft:"2%"}}>
                              <div style={{position:"relative"}}>
-                                    <a onClick={checkOpenPassword} style={{right:"20px", position:"absolute",  paddingTop:"8px"}}>
+                                    <a onClick={checkOpenPassword} style={{right:"80px", position:"absolute",  paddingTop:"8px"}}>
                                         {iconPassword()}
                                     </a>
-                                    <input placeholder={"   password"}className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}/>
-                            </div>
+                                    <Row>
+                                        <input placeholder={"password"}className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10,marginLeft:"8%"}}/>
+                                    </Row>
+                             </div>
                         </form>
                         <Row style={{fontSize:"12px",marginLeft:"66%"}}>
                             <a style={{color:"#185095"}}>Forgot Password?</a>
