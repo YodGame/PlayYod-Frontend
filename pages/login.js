@@ -8,7 +8,6 @@ export default function Geography() {
     const [password,setPassword] = useState();
     const [visible] = useState(true);
     const [isShownPassword, setIsShownPassword] = useState(false);
-    const [isShownConfirmPassword, setIsShownConfirmPassword] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,9 +17,7 @@ export default function Geography() {
     const checkOpenPassword = () => {
         setIsShownPassword(!isShownPassword)
     }
-    const checkOpenConfirmPassword = () => {
-        setIsShownConfirmPassword(!isShownConfirmPassword)
-    }
+
     const typePassword = () => {
         if (isShownPassword) {
             return "text"
@@ -28,13 +25,7 @@ export default function Geography() {
             return "password"
         }
     }
-    const iconConfirmPassword = () => {
-        if (isShownConfirmPassword) {
-            return <AiOutlineEye color="#B3B3B3" size="24px" />
-        } else {
-            return <AiOutlineEyeInvisible color="#B3B3B3" size="24px" />
-        }
-    }
+
     const iconPassword = () => {
         if (isShownPassword) {
             return <AiOutlineEye color="#B3B3B3" size="24px" />
