@@ -1,5 +1,4 @@
 import React from 'react'
-import {isNumber} from "chart.js/helpers";
 export default function Rating_table(props) {
 
     const arrowColor = (statusPlayer) => {
