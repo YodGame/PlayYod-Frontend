@@ -64,7 +64,7 @@ export default function Geography() {
                                     <a onClick={checkOpenPassword} style={{right:"20px", position:"absolute",  paddingTop:"8px"}}>
                                         {iconPassword()}
                                     </a>
-                                    <input className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}/>
+                                    <input placeholder={"   password"}className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}/>
                             </div>
                         </form>
                         <Row style={{fontSize:"12px",marginLeft:"66%"}}>
