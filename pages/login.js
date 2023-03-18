@@ -72,7 +72,7 @@ export default function Geography() {
                         </Row>
                         <Row style={{marginTop:30,marginLeft:"25%"}}>
                             <form onSubmit={handleSubmit} >
-                                <button style={{backgroundColor:"#185095",color:"white",width:205,height:38,borderRadius:20}}> Login </button>
+                                <button style={{backgroundColor:"#185095",color:"white",width:205,height:38,borderRadius:20}}>Login</button>
                             </form>
                         </Row>
                         <Row style={{marginLeft:"45%" ,color:"#185095",marginTop:15,marginBottom:15,fontSize:"15px"}}>
