@@ -93,7 +93,7 @@ export default function NewPassword() {
                         </form>
                         <Row style={{marginTop:50,marginLeft:"25%"}}>
                             <form onSubmit={handleSubmit} >
-                                <button  onClick={() => window.location.href=''} style={{backgroundColor:"#4FA3A5",color:"white",width:205,height:38,borderRadius:20,boxShadow: "2px 2px 5px  rgba(0, 0, 0, 0.25)"}}>Confirm</button>
+                                <button  onClick={() => window.location.href='/login'} style={{backgroundColor:"#4FA3A5",color:"white",width:205,height:38,borderRadius:20,boxShadow: "2px 2px 5px  rgba(0, 0, 0, 0.25)"}}>Confirm</button>
                             </form>
                         </Row>
                         <Row style={{marginTop:20,marginLeft:"28%"}}>
