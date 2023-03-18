@@ -8,7 +8,6 @@ export default function Geography() {
     const [password,setPassword] = useState();
     const [visible] = useState(true);
     const [isShownPassword, setIsShownPassword] = useState(false);
-
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("username :" ,username)
@@ -56,12 +55,12 @@ export default function Geography() {
                                         {iconPassword()}
                                     </a>
                                     <Row>
-                                        <input placeholder={"password"}className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10,marginLeft:"8%"}}/>
+                                        <input placeholder={"password"} className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10,marginLeft:"8%"}}/>
                                     </Row>
                              </div>
                         </form>
                         <Row style={{fontSize:"12px",marginLeft:"66%"}}>
-                            <a style={{color:"#185095"}}>Forgot Password?</a>
+                            <a style={{color:"#185095"}} onClick={() => window.location.href='/forgotPassword'}>Forgot Password?</a>
                         </Row>
                         <Row style={{marginTop:30,marginLeft:"25%"}}>
                             <form onSubmit={handleSubmit} >

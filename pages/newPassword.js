@@ -72,7 +72,7 @@ export default function NewPassword() {
                         <form style={{marginLeft:"5%"}}>
                             <a style={{color:"#185095",marginLeft:"8%"}}>New Password</a>
                             <div style={{position:"relative"}}>
-                                <a onClick={checkOpenPassword} style={{right:"80px", position:"absolute",  paddingTop:"8px"}}>
+                                <a onClick={checkOpenPassword} style={{right:"60px", position:"absolute",  paddingTop:"8px"}}>
                                     {iconPassword()}
                                 </a>
                                 <Row>
@@ -83,7 +83,7 @@ export default function NewPassword() {
                         <form style={{marginLeft:"5%"}}>
                             <a style={{color:"#185095",marginLeft:"8%"}}>Confirm Password</a>
                             <div style={{position:"relative"}}>
-                                <a onClick={checkOpenConfirmPassword} style={{right:"80px", position:"absolute",  paddingTop:"8px"}}>
+                                <a onClick={checkOpenConfirmPassword} style={{right:"60px", position:"absolute",  paddingTop:"8px"}}>
                                     {iconConfirmPassword()}
                                 </a>
                                 <Row>
