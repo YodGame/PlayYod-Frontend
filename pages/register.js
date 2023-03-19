@@ -1,6 +1,7 @@
 import Template from "@/components/layouts/template";
 import { AiOutlineEye,  AiOutlineEyeInvisible} from 'react-icons/ai';
 import {useState} from "react";
+import Link from "next/link";
 
 export default function register() {
 
@@ -174,6 +175,12 @@ export default function register() {
                                 </button>
                             </div>
                         </form>
+                        <div style={{color:"#185095", fontSize:"12px", justifyContent:"center", paddingBottom:"35px", display:"flex", paddingTop:"-5px"}}>
+                            <p>Already have an Account?</p>
+                            <Link href="/login">
+                                <p style={{textDecoration: "underline", paddingLeft:"5px"}}>Login</p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

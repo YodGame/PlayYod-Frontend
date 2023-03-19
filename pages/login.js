@@ -2,6 +2,7 @@ import Template from "@/components/layouts/template";
 import React, {useState} from 'react'
 import Row from "react-bootstrap/Row";
 import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
+import Link from "next/link";
 
 export default function Geography() {
     const [username,setUsername] = useState();
@@ -70,9 +71,11 @@ export default function Geography() {
                         <Row style={{marginLeft:"45%" ,color:"#185095",marginTop:15,marginBottom:15,fontSize:"15px"}}>
                             <label>Or</label>
                         </Row>
-                        <Row style={{color:"#185095",marginLeft:"35%"}}>
-                            <label><u>Create Account</u></label>
-                        </Row>
+                        <Link href="/register">
+                            <Row style={{color:"#185095",marginLeft:"35%"}}>
+                                <label><u>Create Account</u></label>
+                            </Row>
+                        </Link>
                     </div>
                 </container>
             </div>
