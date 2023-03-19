@@ -41,7 +41,7 @@ export default function topRecord() {
                     <SelectDate/>
                 </div>
             </div>
-            <div style={{width:650,margin:"auto"}}><LineGraph/></div>
+            <div style={{width:650,margin:"auto"}}><LineGraph data={data}/></div>
             <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
                 <TopRecordTable color="black" page="topRecord" fontSize="35px" headerSize="25px" row={data}/>
             </div>

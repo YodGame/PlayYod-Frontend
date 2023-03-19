@@ -21,9 +21,19 @@ ChartJs.register(
     Legend,
     Filler
 )
-export default function LineGraph() {
+export default function LineGraph(props) {
+
+    let arrayNames = [];
+    let arrayPlayers = [];
+
+    const API_data = props.data;
+    for (let i = 0; i < API_data.length-40; i++) {
+        arrayNames.push(API_data[i].name);
+        arrayPlayers.push(API_data[i].players);
+    }
+    
     const dataGraph = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: arrayNames,
         datasets: [
             {
                 label: 'People Active',
@@ -37,7 +47,7 @@ export default function LineGraph() {
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [65, 59, 80, 81, 56, 55, 40]
+                data: arrayPlayers
             }
         ]
     };
