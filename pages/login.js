@@ -3,16 +3,39 @@ import React, {useState} from 'react'
 import Row from "react-bootstrap/Row";
 import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
+import axios from "axios";
+import { setAuthState, setUsernameState, setNameState } from "@/redux/slice/authSlice";
+import { useDispatch } from "react-redux";
 
 export default function Geography() {
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
-    const [visible] = useState(true);
+    const [visible, setVisible] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const [isShownPassword, setIsShownPassword] = useState(false);
-    const handleSubmit = (event) => {
+
+    const dispatch = useDispatch();
+    const { push } = useRouter();
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("username :" ,username)
-        console.log("password :" ,password)
+
+        let data = (await axios.post("/api/login", {
+            username: username,
+            password: password
+        })).data;
+
+        if (data.status === "success") {
+            dispatch(setAuthState(true));
+            dispatch(setUsernameState(data.user.username));
+            dispatch(setNameState(data.user.full_name));
+
+            push('/');
+        } else {
+            setVisible(true);
+            setErrorMessage(data.message);
+        }
     }
     const checkOpenPassword = () => {
         setIsShownPassword(!isShownPassword)
@@ -44,7 +67,7 @@ export default function Geography() {
                             <a style={{color:"#4FA3A5"}}>Welcome To PlayYod</a>
                         </Row>
                         <Row style={{color:"red" ,fontSize:"12px",marginLeft:"6%",marginTop:60,marginBottom:5}}>
-                            {visible &&  <a>Incorrect username or password</a>}
+                            {visible && errorMessage}
                         </Row>
                         <Row style={{marginLeft:"8%",marginBottom:30}}>
                             <input style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}
