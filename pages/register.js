@@ -2,8 +2,14 @@ import Template from "@/components/layouts/template";
 import { AiOutlineEye,  AiOutlineEyeInvisible} from 'react-icons/ai';
 import {useState} from "react";
 import Link from "next/link";
+import axios from "axios";
+import {useRouter} from "next/navigation";
+import qs from "qs";
+import {API_URL} from "@/config";
 
 export default function register() {
+
+    const { push } = useRouter();
 
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
@@ -11,8 +17,9 @@ export default function register() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const [canUseUsername, setCanUseUsername] = useState(true);
-    const [isEmail, setIsEmail] = useState(true);
+    const [errorMessage, setErrorMessage] = useState([]);
+    const [visible, setVisible] = useState(false);
+
     const [canUsePassword, setCanUsePassword] = useState(true);
     const [isShownPassword, setIsShownPassword] = useState(false);
     const [isShownConfirmPassword, setIsShownConfirmPassword] = useState(false);
@@ -53,57 +60,6 @@ export default function register() {
         }
     }
 
-    //Check if the username is the same as an existing one in the database.
-    const checkUser = (username) => {
-        console.log(username)
-        const listUsername = [
-            {id:1, name: 'Suck my dick'},
-            {id:2, name:'Oh shit'},
-            {id:3, name:'Holy shit'}
-        ]
-        for (let user of listUsername.map((user) => user.name)) {
-            if (user === username) {
-                setCanUseUsername(false)
-                break;
-            }
-        }
-    }
-
-    //display of inputting username
-    const showToppicUsername = () => {
-        if (canUseUsername) {
-            return <p style={{fontSize:"18px", color:"#185095"}}>Username</p>
-        } else {
-            return <p style={{fontSize:"18px", color:"#F75435"}}>Username : can’t use this user name</p>
-        }
-    }
-    const showInputUsername = () => {
-        if (canUseUsername) {
-            return {padding:"5px", width:"384px", height:"44px", border: "0.5px solid #000000", borderRadius:"10px", boxShadow:"inset 2px 2px 2px rgba(0, 0, 0, 0.25)"}
-        } else {
-            return {padding:"5px", width:"384px", height:"44px", border: "2px solid #F75435", borderRadius:"10px", boxShadow:"inset 2px 2px 2px rgba(0, 0, 0, 0.25)"}
-        }
-    }
-
-    //display of inputting email
-    const checkEmail = (email) => {
-        setIsEmail(email.includes("@"))
-    }
-    const showToppicEmail = () => {
-        if (isEmail) {
-            return <p style={{fontSize:"18px", color:"#185095"}}>E-mail</p>
-        } else {
-            return <p style={{fontSize:"18px", color:"#F75435"}}>E-mail : e-mail error</p>
-        }
-    }
-    const showInputEmail = () => {
-        if (isEmail) {
-            return {padding:"5px", width:"384px", height:"44px", border: "0.5px solid #000000", borderRadius:"10px", boxShadow:"inset 2px 2px 2px rgba(0, 0, 0, 0.25)"}
-        } else {
-            return {padding:"5px", width:"384px", height:"44px", border: "2px solid #F75435", borderRadius:"10px", boxShadow:"inset 2px 2px 2px rgba(0, 0, 0, 0.25)"}
-        }
-    }
-
     //display of inputting confirmPassword
     const checkConfirmPassword = (confirmPassword) => {
         setCanUsePassword(confirmPassword === password)
@@ -126,9 +82,38 @@ export default function register() {
     //when submit
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("name:", name, "username:", username, "email:", email, "password:", password, "confirm-password:", password)
-        if (username==="") {
-            setCanUseUsername(false)
+        if (password === confirmPassword) {
+            const formData = { username: username, email: email, password: password, full_name: name };
+            axios.post(
+                API_URL + "auth/register",
+                qs.stringify(formData),
+                {
+                    headers: {"Content-Type": "application/x-www-form-urlencoded"}
+                }
+            ).then(r => {
+                let data = r.data;
+                if (data?.status === 'success') {
+                    push('/login')
+                } else {
+                    setVisible(true);
+                    setErrorMessage([data?.message]);
+                }
+                console.log(data)
+            }).catch(e => {
+                if (e?.response?.data?.detail) {
+                    let data = e.response.data.detail;
+
+                    let arr = []
+                    data.map((item) => {
+                        let msg = item.msg.replace(/value|string/gi, item.loc[1]);
+
+                        arr.push(msg);
+                    });
+
+                    setVisible(true);
+                    setErrorMessage(arr);
+                }
+            })
         }
     }
 
@@ -139,17 +124,26 @@ export default function register() {
                     <div style={{display: "block", margin: "auto", width:"469px", backgroundColor:"#F6F6F6", borderRadius:"35px", boxShadow:"0px 4px 4px"}}>
                         <form style={{padding:"50px 40px"}}>
                             <h1 style={{textAlign:"center", fontSize:"28px"}}>Create Your <img src="https://i.ibb.co/w6cx7NZ/playyod-removebg-preview-1.png" alt="playyod"/> Account</h1>
-                            <div style={{paddingTop:"34px"}}>
+                            {visible &&
+                                <div style={{color: "red", fontSize: "16px", margin: "0"}}>
+                                    <ul>
+                                        {errorMessage.map((ele, i) =>
+                                            <li key={i}>{ele}</li>
+                                        )}
+                                    </ul>
+                                </div>
+                            }
+                            <div style={{paddingTop:"10px"}}>
                                 <p style={{fontSize:"18px", color:"#185095"}}>Full name</p>
                                 <input className="input" value={name} id="name" type="text" name="name" onChange={e => setName(e.target.value)} style={{padding:"5px", width:"384px", height:"44px", border: "0.5px solid #000000", borderRadius:"10px", boxShadow:"inset 2px 2px 2px rgba(0, 0, 0, 0.25)"}}/>
                             </div>
                             <div style={{paddingTop:"26px"}}>
-                                {showToppicUsername()}
-                                <input className="input" value={username} id="username" type="text" name="username" onChange={e => {setUsername(e.target.value), checkUser(e.target.value)}} style={showInputUsername()}/>
+                                <p style={{fontSize:"18px", color:"#185095"}}>Username</p>
+                                <input className="input" value={username} id="username" type="text" name="username" onChange={e => {setUsername(e.target.value)}} style={{padding:"5px", width:"384px", height:"44px", border: "0.5px solid #000000", borderRadius:"10px", boxShadow:"inset 2px 2px 2px rgba(0, 0, 0, 0.25)"}}/>
                             </div>
                             <div style={{paddingTop:"26px"}}>
-                                {showToppicEmail()}
-                                <input className="input" value={email} id="email" type="text" name="email" onChange={e => {setEmail(e.target.value), checkEmail(e.target.value)}} style={showInputEmail()}/>
+                                <p style={{fontSize:"18px", color:"#185095"}}>E-mail</p>
+                                <input className="input" value={email} id="email" type="text" name="email" onChange={e => {setEmail(e.target.value)}} style={{padding:"5px", width:"384px", height:"44px", border: "0.5px solid #000000", borderRadius:"10px", boxShadow:"inset 2px 2px 2px rgba(0, 0, 0, 0.25)"}}/>
                             </div>
                             <div style={{paddingTop:"26px"}}>
                                 <p style={{fontSize:"18px", color:"#185095"}}>Password</p>
@@ -166,7 +160,7 @@ export default function register() {
                                     <a onClick={checkOpenConfirmPassword} style={{right:"20px", position:"absolute",  paddingTop:"8px"}}>
                                         {iconConfirmPassword()}
                                     </a>
-                                    <input className="input" value={confirmPassword} id="confirmPassword" type={typeConfirmPassword()} name="confirmPassword"  onChange={e => {setConfirmPassword(e.target.value), checkConfirmPassword(e.target.value)}} style={showInputConfirmPassword()}/>
+                                    <input className="input" value={confirmPassword} id="confirmPassword" type={typeConfirmPassword()} name="confirmPassword"  onChange={e => {setConfirmPassword(e.target.value); checkConfirmPassword(e.target.value)}} style={showInputConfirmPassword()}/>
                                 </div>
                             </div>
                             <div style={{paddingTop:"52px", textAlign:"center"}}>
