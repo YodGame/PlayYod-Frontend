@@ -58,6 +58,9 @@ export default function Template(props) {
                         <li className="nav-item">
                             <Link className="nav-link" href="/topRecord" style={{color:"#0F1C3C",}} ><VscGraphLine className="nav-icon" icon={VscGraphLine} style={{color:"#0F1C3C"}}/> Top Record</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" href="/topRating" style={{color:"#0F1C3C",}} ><VscGraphLine className="nav-icon" icon={VscGraphLine} style={{color:"#0F1C3C"}}/> Top Rating</Link>
+                        </li>
                     </ul>
 
                 </div>
