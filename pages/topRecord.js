@@ -1,6 +1,5 @@
 import Template from "@/components/layouts/template";
 import TopRecordTable from '../components/organisms/top-record-table'
-import SelectDate from "@/components/molecules/select-date";
 import LineGraph from "@/components/molecules/line-graph";
 import {useState, useEffect} from 'react'
 import { API_URL } from "@/config";
@@ -17,34 +16,34 @@ export default function topRecord() {
     const convert = (selected) => {
         const day = selected.getDate();
         const month =
-          selected.getMonth() >= 10
-            ? selected.getMonth() + 1
-            : `0${selected.getMonth() + 1}`;
+            selected.getMonth() >= 10
+                ? selected.getMonth() + 1
+                : `0${selected.getMonth() + 1}`;
         const year = selected.getFullYear();
-    
+
         return `${year}-${month}-${day}`;
-      };
+    };
 
     useEffect(() => {
         axios.get(API_URL + "top/records")
             .then(response => {
                 const newData = response.data.map((item, index) => {
-        
-                  return {
-                    id: index + 1,
-                    ...item
-                    
-                  };
+
+                    return {
+                        id: index + 1,
+                        ...item
+
+                    };
 
                 });
                 setData(newData);
             })
             .catch(error => console.log(error));
-      }, []);
+    }, []);
 
     return (
         <Template>
-            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal"}}>
+            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal",padding:30}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top records</h1>
                 </div>
@@ -56,12 +55,12 @@ export default function topRecord() {
                             axios.get(API_URL + "top/records?date=" + convert(date))
                                 .then(response => {
                                     const newData = response.data.map((item, index) => {
-                
-                                    return {
-                                        id: index + 1,
-                                        ...item
-                                        
-                                    };
+
+                                        return {
+                                            id: index + 1,
+                                            ...item
+
+                                        };
 
                                     });
                                     setData(newData);

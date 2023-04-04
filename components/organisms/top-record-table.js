@@ -1,7 +1,8 @@
 import React from 'react';
 import crown from '../../public/crown.svg';
-import Image from 'next/image'
+import Image from 'next/image';
 import moment from 'moment';
+
 export default function TopRecordTable(props){
 
     const columns = [

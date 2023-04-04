@@ -31,7 +31,7 @@ export default function LineGraph(props) {
         arrayNames.push(API_data[i].name);
         arrayPlayers.push(API_data[i].players);
     }
-    
+
     const dataGraph = {
         labels: arrayNames,
         datasets: [

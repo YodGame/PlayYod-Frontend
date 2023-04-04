@@ -1,5 +1,4 @@
 import Template from "@/components/layouts/template";
-import SelectDateSeller from "../components/molecules/select-date-seller"
 import TopSellerTable from "../components/organisms/top-seller-table"
 import {useState, useEffect} from 'react'
 import { API_URL } from "@/config";
@@ -15,7 +14,7 @@ export default function topSeller() {
         axios.get(API_URL + "top/sellers" + date_path)
             .then(response => {
                 const newData = response.data.map((item, index) => {
-        
+
                   return {
                     ...item,
                     id: index + 1
@@ -30,7 +29,7 @@ export default function topSeller() {
 
     return (
         <Template>
-            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal"}}>
+            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal",padding:30}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top Seller</h1>
                 </div>
