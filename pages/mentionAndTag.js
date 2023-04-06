@@ -5,7 +5,25 @@ import axios from 'axios';
 import { API_URL } from "@/config";
 
 function MentionAndTag() {
-    
+
+    function search() {
+        var inputdata = document.getElementById('searchbar').value;
+        console.log(inputdata);
+        axios.get(API_URL + "mentions/search?keyword=" + inputdata)
+            .then(response => {
+                const newData = response.data.map((item, index) => {
+                    return {
+                        id: index + 1,
+                        ...item
+                    };
+                });
+                setPost(newData);
+                console.log(post);
+            })
+            .catch(error => console.log(error));
+
+    }
+        
     const [post, setPost] = useState([]);
 
     useEffect(() => {
@@ -18,7 +36,7 @@ function MentionAndTag() {
                     };
                 });
                 setPost(newData);
-                console.log(newData);
+                console.log(post);
             })
             .catch(error => console.log(error));
     }, []); 
@@ -26,42 +44,49 @@ function MentionAndTag() {
     return (
         <Template>
             <div style={{backgroundColor:"white"}}>
-                <div style={{padding:30,color:"#185095"}}>
+                <div style={{padding:30,color:" #185095"}}>
+
+                    <div style={{float:"right"}}>
+                        <input id="searchbar" type="text" placeholder="Search.."/>
+                        <button onClick={()=>search()} type="submit">Submit</button>
+                    </div>
+
                     <h1 style={{paddingLeft:'4vw'}}><b>Mention&Tag</b></h1>
-                        <div style={{backgroundColor:"#ECE1FE",borderRadius:30,display:"flex"}}>
-                            <div style={styles.pin_container}>
-                            {/*เลขหลังspan คือจุดสิ้นสุดrow akaความยาวของ box*/}
-                            <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                            </div>
-                            <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                            </div>
+                    
+                    <div style={{backgroundColor:"#ECE1FE",borderRadius:30,display:"flex"}}>
+                        <div style={styles.pin_container}>
+                        {/*เลขหลังspan คือจุดสิ้นสุดrow akaความยาวของ box*/}
+                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
                         </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
+                        </div>
+                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
