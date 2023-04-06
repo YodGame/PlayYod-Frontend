@@ -1,7 +1,27 @@
 import React from "react";
 import Template from "@/components/layouts/template";
+import {useState, useEffect} from 'react'
+import axios from 'axios';
+import { API_URL } from "@/config";
 
 function MentionAndTag() {
+    
+    const [post, setPost] = useState([]);
+
+    useEffect(() => {
+        axios.get(API_URL + "mentions/search?keyword=game|gaming")
+            .then(response => {
+                const newData = response.data.map((item, index) => {
+                    return {
+                        id: index + 1,
+                        ...item
+                    };
+                });
+                setPost(newData);
+                console.log(newData);
+            })
+            .catch(error => console.log(error));
+    }, []); 
 
     return (
         <Template>
