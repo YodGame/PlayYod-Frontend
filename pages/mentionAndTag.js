@@ -21,7 +21,6 @@ function MentionAndTag() {
                 console.log(post);
             })
             .catch(error => console.log(error));
-
     }
         
     const [post, setPost] = useState([]);
