@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback, useLayoutEffect} from "react";
 import Template from "@/components/layouts/template";
 import {useState, useEffect} from 'react'
 import axios from 'axios';
@@ -6,11 +6,13 @@ import { API_URL } from "@/config";
 import {RiUserFill} from "react-icons/ri";
 import {BiLike} from "react-icons/bi";
 import {BsChatRight} from "react-icons/bs";
+import { useRef } from "react";
 
 function MentionAndTag() {
 
     const [data, setData] = useState([]);
     const [post, setPost] = useState([]);
+
 
 
     function search() {
@@ -105,27 +107,51 @@ function MentionAndTag() {
             )
         }
     }
+    const getSpanForImage = (image) => {
+        if (image !== null) {
+            return 63;
+        } else {
+            return 28;
+        }
+    }
+
+
+
+    const styles = {
+        pin_container: {
+            justifyContent:"center",
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, 348px)",
+            gridAutoRows: "10px",
+            marginTop:"1%"
+
+        },
+        card: {
+            margin: "15px 10px",
+            padding: 0,
+            borderRadius: "16px",
+            backgroundColor: "white",
+
+        }
+    };
     return (
         <Template>
             <div style={{backgroundColor:"white"}}>
                 <div style={{padding:30,color:" #185095"}}>
-
                         <div style={{ position: "relative", display: "inline-block",float:"right" }}>
                             <input style={{ width: "379px", height: "41px", borderRadius: "30px", paddingLeft: "30px", border: "2px solid rgba(24, 80, 149, 1)"}} id="searchbar" type="text" placeholder="Search.." />
                             <button style={{ position: "absolute", top: 0, right: 0, width: "84px", height: "41px", borderRadius: "30px", backgroundColor: "rgba(24, 80, 149, 1)", border: "2px solid rgba(24, 80, 149, 1)" }} onClick={() => search()} type="submit">
                                 <img alt="Union" src="/Union.png" />
                             </button>
                         </div>
-
-
-
                     <h1 style={{paddingLeft:'4vw'}}><b>Mention&Tag</b></h1>
 
                     <div style={{backgroundColor:"#ECE1FE",borderRadius:30,display:"flex"}}>
                         <div style={styles.pin_container}>
                             {post.map(data => (
-                                    <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                                        {/* For open new tan when click since at top box to image*/}
+                                <div style={{ ...styles.card, gridRowEnd: `span ${getSpanForImage(data.thumbnail)}` }}>
+                                    {/* For open new tan when click since at top box to image*/}
                                         {/*<div style={{height:'fit-content'}}>*/}
                                             <div style={{padding:"15px 25px"}} onClick={()=> window.open(data.url, "_blank")}>
                                                 <div style={{display:"flex", justifyContent:"space-between"}} >
@@ -148,8 +174,8 @@ function MentionAndTag() {
 
                                                 <div>
                                                     {/* title */}
-                                                    <h2 style={{fontSize:"20px", color:"#000000", width:'285px'}}>
-                                                        {data.title}
+                                                    <h2 style={{fontSize:"20px", color:"black", width:'285px'}}>
+                                                        {data.title.length > 200 ? data.title.substr(0, 200) + '...' : data.title}
                                                     </h2>
                                                 </div>
                                                 <div>
@@ -171,7 +197,6 @@ function MentionAndTag() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        {/*</div>*/}
                                     </div>
                                 )
                             )}
@@ -184,23 +209,6 @@ function MentionAndTag() {
     );
 }
 
-const styles = {
-    pin_container: {
-        justifyContent:"center",
-        width: "100%",
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, 348px)",
-        gridAutoRows: "10px",
-        marginTop:"1%"
 
-    },
-    card: {
-       margin: "15px 10px",
-        padding: 0,
-        borderRadius: "16px",
-        backgroundColor: "white",
-
-    }
-};
 
 export default MentionAndTag;
