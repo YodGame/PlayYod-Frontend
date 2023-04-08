@@ -70,16 +70,16 @@ export default function Geography() {
                             {visible && errorMessage}
                         </Row>
                         <Row style={{marginLeft:"8%",marginBottom:30}}>
-                            <input style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10}}
-                                   placeholder={"username or E-mail"} type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                            <input style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10,color:"black"}}
+                                   placeholder={"username or E-mail"}  type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         </Row>
                         <form style={{marginLeft:"2%"}}>
                              <div style={{position:"relative"}}>
-                                    <a onClick={checkOpenPassword} style={{right:"80px", position:"absolute",  paddingTop:"8px"}}>
+                                    <a onClick={checkOpenPassword} style={{right:"80px", position:"absolute",paddingTop:"8px"}}>
                                         {iconPassword()}
                                     </a>
                                     <Row>
-                                        <input placeholder={"password"} className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",width:384,height:44,borderRadius:10,marginLeft:"8%"}}/>
+                                        <input placeholder={"password"} className="input" value={password} id="password" type={typePassword()} name="password"  onChange={e => setPassword(e.target.value)} style={{backgroundColor:"#F0F1F1",color:"black",width:384,height:44,borderRadius:10,marginLeft:"8%"}}/>
                                     </Row>
                              </div>
                         </form>

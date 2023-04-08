@@ -6,7 +6,6 @@ import TopPlayersTable from "@/components/organisms/top-players-table";
 import {BsArrowRight} from 'react-icons/bs';
 import Link from "next/link";
 import {Button} from "react-bootstrap";
-import {Bokor} from "@next/font/google";
 import  axios  from "axios";
 import { API_URL } from "@/config";
 import { useState, useEffect } from "react";
@@ -22,11 +21,11 @@ export default function Index() {
         axios.get(API_URL + "home/summary")
             .then(response => {
                 setData(response.data);
-                
+
             })
             .catch(error => console.log(error));
-      }, []); 
-    
+      }, []);
+
     //split data to 4 set
     ten_top_seller = addIndexToArray(data.top_sellers) ;
     ten_top_record = addIndexToArray(data.top_records);
@@ -37,11 +36,10 @@ export default function Index() {
         if(arr != null){
             return arr.map((item, index) => {
           return { ...item, id: index + 1 };
-          
+
         });
         }
       }
-
 
     return (
         <Template>

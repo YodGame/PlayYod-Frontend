@@ -4,9 +4,9 @@ import React,{useState, useEffect} from 'react'
 import TopThreeCountry from "@/components/molecules/top-three-country";
 import Row from 'react-bootstrap/Row';
 import {Col} from "react-bootstrap";
-import Rating_table from "@/components/organisms/rating_table";
 import { API_URL } from "@/config";
 import axios from 'axios';
+import Rating_table_geograph from "@/components/organisms/rating_table_geograph";
 
 export default function Geography() {
 
@@ -60,7 +60,9 @@ console.log(data);
                     <TopThreeCountry style="top3" countryName={data[2].name} rate="3" backgroundColor="#4FA3A5" height ="112px" margin="68" img={checkFlag(data[2].name)} />
                 </Col>
             </Row>
-            <Rating_table data={subArray}/>
+                <div>
+                    <Rating_table_geograph data={subArray}/>
+                </div>
             </div>
         </Template>
     )

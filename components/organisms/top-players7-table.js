@@ -1,6 +1,7 @@
 import React from 'react';
 import crown from '../../public/crown.svg';
 import Image from 'next/image'
+import moment from "moment";
 export default function TopPlayers7Table(props){
 
     const columns = [
@@ -68,11 +69,11 @@ export default function TopPlayers7Table(props){
                                 {/* NAME */}
                             </div>
                             <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
-                                <h5 key={item.id}>{item.players}</h5>
+                                <h5 key={item.id}>{item.players.toLocaleString()}</h5>
                                 {/* PLAYERS */}
                             </div>
                             <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
-                                <h5 key={item.id}>{item.time}</h5>
+                                <h5 key={item.id}>{moment.unix(item.time).format("DD MMMM YYYY")}</h5>
                                 {/* TIME */}
                             </div>
                         </div>

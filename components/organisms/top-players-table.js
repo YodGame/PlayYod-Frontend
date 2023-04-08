@@ -64,7 +64,7 @@ export default function TopPlayersTable(props){
                                 {/* NAME */}
                             </div>
                             <div style={{ width:"25%", margin:"auto", textAlign:"center"}}>
-                                <h5 key={item.id}>{item.players}</h5>
+                                <h5 key={item.id}>{item.players.toLocaleString()}</h5>
                                 {/* PLAYERS */}
                             </div>
 

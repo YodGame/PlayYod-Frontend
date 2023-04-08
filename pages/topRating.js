@@ -13,22 +13,20 @@ export default function topRating() {
         axios.get(API_URL + "ratings/top")
             .then(response => {
                 setData(response.data);
-                
+
             })
             .catch(error => console.log(error));
-      }, []); 
+      }, []);
 
     console.log(data);
 
     return (
         <Template>
-            <div style={{padding:30}}>
+            <div style={{padding:30,color:"black"}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top Rating</h1>
                 </div>
-
                 <Rating_table data={data}/>
-
             </div>
         </Template>
     )
