@@ -85,6 +85,7 @@ export default function Template(props) {
                                                 <div className="dropdown-header bg-light py-2">
                                                     <div className="fw-semibold">{nameState}</div>
                                                 </div>
+                                                <Link className="dropdown-item" href="/loginHistory">Login History</Link>
                                                 <a className="dropdown-item" href="#" onClick={() => Logout()}>Logout</a>
                                             </>
                                         :

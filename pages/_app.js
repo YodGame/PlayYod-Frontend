@@ -12,6 +12,13 @@ config.autoAddCss = false;
 import Head from 'next/head';
 import {Provider} from "react-redux";
 import {useEffect} from "react";
+import { Roboto } from '@next/font/google';
+
+const roboto = Roboto({
+    weight: ['400', '700'],
+    style: ['normal', 'italic'],
+    subsets: ['latin'],
+})
 
 function App({ Component, ...rest }) {
   const { store, props } = wrapper.useWrappedStore(rest);
@@ -39,6 +46,11 @@ function App({ Component, ...rest }) {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
         </Head>
+          <style jsx global>{`
+            body {
+              font-family: ${roboto.style.fontFamily};
+            }
+          `}</style>
         <Provider store={store}>
             <Component {...pageProps} />
         </Provider>
