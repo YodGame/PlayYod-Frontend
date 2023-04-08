@@ -29,8 +29,8 @@ function MentionAndTag() {
             })
             .catch(error => console.log(error));
     }
-        
-    
+
+
 
     useEffect(() => {
         axios.get(API_URL + "mentions/search?keyword=game|gaming")
@@ -105,73 +105,77 @@ function MentionAndTag() {
             )
         }
     }
-
     return (
         <Template>
             <div style={{backgroundColor:"white"}}>
                 <div style={{padding:30,color:" #185095"}}>
 
-                    <div style={{float:"right"}}>
-                        <input id="searchbar" type="text" placeholder="Search.."/>
-                        <button onClick={()=>search()} type="submit">Submit</button>
-                    </div>
+                        <div style={{ position: "relative", display: "inline-block",float:"right" }}>
+                            <input style={{ width: "379px", height: "41px", borderRadius: "30px", paddingLeft: "30px", border: "2px solid rgba(24, 80, 149, 1)"}} id="searchbar" type="text" placeholder="Search.." />
+                            <button style={{ position: "absolute", top: 0, right: 0, width: "84px", height: "41px", borderRadius: "30px", backgroundColor: "rgba(24, 80, 149, 1)", border: "2px solid rgba(24, 80, 149, 1)" }} onClick={() => search()} type="submit">
+                                <img alt="Union" src="/Union.png" />
+                            </button>
+                        </div>
+
+
 
                     <h1 style={{paddingLeft:'4vw'}}><b>Mention&Tag</b></h1>
-                    
+
                     <div style={{backgroundColor:"#ECE1FE",borderRadius:30,display:"flex"}}>
                         <div style={styles.pin_container}>
-                        {/*เลขหลังspan คือจุดสิ้นสุดrow akaความยาวของ box*/}
                             {post.map(data => (
-                                    <div style={{...styles.card,gridRowEnd: 'span 80'}}>
+                                    <div style={{...styles.card,gridRowEnd: 'span 70'}}>
                                         {/* For open new tan when click since at top box to image*/}
-                                        <div style={{padding:"15px 25px"}} onClick={()=> window.open(data.url, "_blank")}>
-                                            <div style={{display:"flex", justifyContent:"space-between"}} >
-                                                <div>
-                                                    {/* author */}
-                                                    <RiUserFill color={"#9C9A9A"}/>
-                                                    <label style={{color:"#9C9A9A", fontSize:"13px"}}>{data.author}</label>
+                                        {/*<div style={{height:'fit-content'}}>*/}
+                                            <div style={{padding:"15px 25px"}} onClick={()=> window.open(data.url, "_blank")}>
+                                                <div style={{display:"flex", justifyContent:"space-between"}} >
+                                                    <div>
+                                                        {/* author */}
+                                                        <RiUserFill color={"#9C9A9A"}/>
+                                                        <label style={{color:"#9C9A9A", fontSize:"13px"}}>{data.author}</label>
+                                                    </div>
+                                                    <div>
+                                                        {/* subreddit */}
+                                                        <button style={{fontSize:"8px", border:"1px solid", borderRadius:"50px", borderColor:"#5A81B1", backgroundColor:"white" , marginRight:"3px"}}>
+                                                            <label style={{color:"#5A81B1", padding:"3px"}}>
+                                                                {data.subreddit}
+                                                            </label>
+                                                        </button>
+                                                        {/* flair_name */}
+                                                        {buttonType(data.flair_name)}
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    {/* subreddit */}
-                                                    <button style={{fontSize:"8px", border:"1px solid", borderRadius:"50px", borderColor:"#5A81B1", backgroundColor:"white" , marginRight:"3px"}}>
-                                                        <label style={{color:"#5A81B1", padding:"3px"}}>
-                                                            {data.subreddit}
-                                                        </label>
-                                                    </button>
-                                                    {/* flair_name */}
-                                                    {buttonType(data.flair_name)}
-                                                </div>
-                                            </div>
 
-                                            <div>
-                                                {/* title */}
-                                                <h2 style={{fontSize:"20px", color:"#000000", width:'285px'}}>
-                                                    {data.title}
-                                                </h2>
-                                            </div>
-                                            <div>
-                                                {/* thumbnail  */}
-                                                {checkImage(data.thumbnail)}
-                                            </div>
+                                                <div>
+                                                    {/* title */}
+                                                    <h2 style={{fontSize:"20px", color:"#000000", width:'285px'}}>
+                                                        {data.title}
+                                                    </h2>
+                                                </div>
+                                                <div>
+                                                    {/* thumbnail  */}
+                                                    {checkImage(data.thumbnail)}
+                                                </div>
 
-                                            <hr style={{border: "1px solid #B3B3B3"}} width={"289.01px"} align={"center"} color={"#B3B3B3"}/>
-                                            <div style={{display:"flex", justifyContent:"space-between"}}>
-                                                <div>
-                                                    {/* ups */}
-                                                    <BiLike color={"#856FF7"}/>
-                                                    <label style={{paddingLeft: "3px"}}>{data.ups}</label>
-                                                </div>
-                                                <div>
-                                                    {/* num_comments */}
-                                                    <BsChatRight color={"#856FF7"}/>
-                                                    <label style={{paddingLeft: "3px"}}>{data.num_comments}</label>
+                                                <hr style={{border: "1px solid #B3B3B3"}} width={"289.01px"} align={"center"} color={"#B3B3B3"}/>
+                                                <div style={{display:"flex", justifyContent:"space-between"}}>
+                                                    <div>
+                                                        {/* ups */}
+                                                        <BiLike color={"#856FF7"}/>
+                                                        <label style={{paddingLeft: "3px"}}>{data.ups}</label>
+                                                    </div>
+                                                    <div>
+                                                        {/* num_comments */}
+                                                        <BsChatRight color={"#856FF7"}/>
+                                                        <label style={{paddingLeft: "3px"}}>{data.num_comments}</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        {/*</div>*/}
                                     </div>
                                 )
                             )}
-                       
+
                     </div>
                     </div>
                 </div>
