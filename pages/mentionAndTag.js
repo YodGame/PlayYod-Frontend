@@ -9,6 +9,10 @@ import {BsChatRight} from "react-icons/bs";
 
 function MentionAndTag() {
 
+    const [data, setData] = useState([]);
+    const [post, setPost] = useState([]);
+
+
     function search() {
         var inputdata = document.getElementById('searchbar').value;
         console.log(inputdata);
@@ -26,7 +30,7 @@ function MentionAndTag() {
             .catch(error => console.log(error));
     }
         
-    const [post, setPost] = useState([]);
+    
 
     useEffect(() => {
         axios.get(API_URL + "mentions/search?keyword=game|gaming")
@@ -43,53 +47,6 @@ function MentionAndTag() {
             .catch(error => console.log(error));
     }, []);
 
-    const data = [
-        {
-            user: "GreenPandaSauce",
-            game: "PUBATTLEGROUNDS",
-            type: "Discussion",
-            topic: "Not having a solid squad in this game is such a deal breaker. Agree or disagree?",
-            image: "",
-            like: 82,
-            message: 56,
-        },
-        {
-            user: "GreenPandaSauce",
-            game: "PUBGConsole",
-            type: "Official Post",
-            topic: "Not having a solid squad in this game is such a deal breaker. Agree or disagree?",
-            image: "https://editors.dexerto.com/wp-content/uploads/2022/05/20/Valorant-series.jpg",
-            like: 82,
-            message: 56,
-        },
-        {
-            user: "GreenPandaSauce",
-            game: "PUBATTLEGROUNDS",
-            type: "Venting",
-            topic: "Not having a solid squad in this game is such a deal breaker. Agree or disagree?",
-            image: "https://editors.dexerto.com/wp-content/uploads/2022/05/20/Valorant-series.jpg",
-            like: 82,
-            message: 56,
-        },
-        {
-            user: "GreenPandaSauce",
-            game: "PUBATTLEGROUNDS",
-            type: "Meta",
-            topic: "Not having a solid squad in this game is such a deal breaker. Agree or disagree?",
-            image: "https://editors.dexerto.com/wp-content/uploads/2022/05/20/Valorant-series.jpg",
-            like: 82,
-            message: 56,
-        },
-        {
-            user: "GreenPandaSauce",
-            game: "PUBATTLEGROUNDS",
-            type: "Creative",
-            topic: "Not having a solid squad in this game is such a deal breaker. Agree or disagree?",
-            image: "https://editors.dexerto.com/wp-content/uploads/2022/05/20/Valorant-series.jpg",
-            like: 82,
-            message: 56,
-        },
-    ]
 
     const buttonType = (type) => {
         if (type === "Discussion") {
@@ -142,7 +99,7 @@ function MentionAndTag() {
     }
 
     const checkImage = (image) => {
-        if (image !== "") {
+        if (image !== null) {
             return (
                 <img src={image} width={"283px"} height={"283px"} style={{borderRadius:"10px"}}/>
             )
@@ -164,76 +121,57 @@ function MentionAndTag() {
                     <div style={{backgroundColor:"#ECE1FE",borderRadius:30,display:"flex"}}>
                         <div style={styles.pin_container}>
                         {/*เลขหลังspan คือจุดสิ้นสุดrow akaความยาวของ box*/}
-                            {data.map(data => (
+                            {post.map(data => (
                                     <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                                        <div style={{padding:"15px 25px"}}>
-                                            <div style={{display:"flex", justifyContent:"space-between"}}>
+                                        {/* For open new tan when click since at top box to image*/}
+                                        <div style={{padding:"15px 25px"}} onClick={()=> window.open(data.url, "_blank")}>
+                                            <div style={{display:"flex", justifyContent:"space-between"}} >
                                                 <div>
+                                                    {/* author */}
                                                     <RiUserFill color={"#9C9A9A"}/>
-                                                    <label style={{color:"#9C9A9A", fontSize:"13px"}}>{data.user}</label>
+                                                    <label style={{color:"#9C9A9A", fontSize:"13px"}}>{data.author}</label>
                                                 </div>
                                                 <div>
+                                                    {/* subreddit */}
                                                     <button style={{fontSize:"8px", border:"1px solid", borderRadius:"50px", borderColor:"#5A81B1", backgroundColor:"white" , marginRight:"3px"}}>
                                                         <label style={{color:"#5A81B1", padding:"3px"}}>
-                                                            {data.game}
+                                                            {data.subreddit}
                                                         </label>
                                                     </button>
-                                                    {buttonType(data.type)}
+                                                    {/* flair_name */}
+                                                    {buttonType(data.flair_name)}
                                                 </div>
                                             </div>
+
                                             <div>
-                                                <h2 style={{fontSize:"25px", color:"#000000"}}>
-                                                    {data.topic}
+                                                {/* title */}
+                                                <h2 style={{fontSize:"20px", color:"#000000", width:'285px'}}>
+                                                    {data.title}
                                                 </h2>
                                             </div>
                                             <div>
-                                                {checkImage(data.image)}
+                                                {/* thumbnail  */}
+                                                {checkImage(data.thumbnail)}
                                             </div>
+
                                             <hr style={{border: "1px solid #B3B3B3"}} width={"289.01px"} align={"center"} color={"#B3B3B3"}/>
                                             <div style={{display:"flex", justifyContent:"space-between"}}>
                                                 <div>
+                                                    {/* ups */}
                                                     <BiLike color={"#856FF7"}/>
-                                                    <label style={{paddingLeft: "3px"}}>{data.like}</label>
+                                                    <label style={{paddingLeft: "3px"}}>{data.ups}</label>
                                                 </div>
                                                 <div>
+                                                    {/* num_comments */}
                                                     <BsChatRight color={"#856FF7"}/>
-                                                    <label style={{paddingLeft: "3px"}}>{data.message}</label>
+                                                    <label style={{paddingLeft: "3px"}}>{data.num_comments}</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 )
                             )}
-                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 80'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 50'}}>
-                        </div>
-                        <div style={{...styles.card,gridRowEnd: 'span 70'}}>
-                        </div>
+                       
                     </div>
                     </div>
                 </div>
