@@ -109,9 +109,9 @@ function MentionAndTag() {
     }
     const getSpanForImage = (image) => {
         if (image !== null) {
-            return 63;
+            return 55;
         } else {
-            return 28;
+            return 25;
         }
     }
 
@@ -175,7 +175,7 @@ function MentionAndTag() {
                                                 <div>
                                                     {/* title */}
                                                     <h2 style={{fontSize:"20px", color:"black", width:'285px'}}>
-                                                        {data.title.length > 200 ? data.title.substr(0, 200) + '...' : data.title}
+                                                        {data.title.length > 130 ? data.title.substr(0, 130) + ' ...' : data.title}
                                                     </h2>
                                                 </div>
                                                 <div>
