@@ -3,13 +3,15 @@ import Script from "next/script";
 import { useRouter } from 'next/navigation';
 import * as React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome , faGlobeAmericas ,faBars} from '@fortawesome/free-solid-svg-icons';
+import { faHome , faGlobeAmericas ,faBars,faStarHalfStroke,faAt} from '@fortawesome/free-solid-svg-icons';
 import {BsGraphUp} from "react-icons/bs";
 import { VscGraphLine } from "react-icons/vsc";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAuthState, selectNameState, setAuthState, setNameState, setUsernameState } from "@/redux/slice/authSlice";
 import axios from "axios";
+import {useState} from "react";
+
 
 export default function Template(props) {
     const authState = useSelector(selectAuthState);
@@ -27,6 +29,15 @@ export default function Template(props) {
             push("/");
         }
     }
+    const [homeHovered, setHomeHovered] = useState(false);
+    const [geoHovered, setGeoHovered] = useState(false);
+    const [topSellerHovered, setTopSellerHovered] = useState(false);
+    const [topRecordHovered, setTopRecordHovered] = useState(false);
+    const [topRatingHovered, setTopRatingHovered] = useState(false);
+    const [mentionAndTagHovered, setMentionAndTagHovered] = useState(false);
+
+
+
 
     return (
         <>
@@ -46,32 +57,52 @@ export default function Template(props) {
 
                     </div>
                     <ul className="sidebar-nav" data-coreui="navigation" data-simplebar="">
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/" style={{color:"#0F1C3C"}}><FontAwesomeIcon className="nav-icon" icon={faHome} style={{color:"#0F1C3C"}}  /> HOME</Link>
+                        <li className="nav-item" style={{ backgroundColor: homeHovered ? "#E9F3FF" : "" }} onMouseEnter={() => setHomeHovered(true)} onMouseLeave={() => setHomeHovered(false)}>
+                            <Link className="nav-link" href="/" style={{ color: homeHovered ? "#185095" : "#0F1C3C" }}>
+                                <FontAwesomeIcon className="nav-icon" icon={faHome} style={{ color: homeHovered ? "#185095" : "#0F1C3C" }}/>
+                                HOME
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/geoGraph" style={{color:"#0F1C3C",}} ><FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{color:"#0F1C3C"}}/> Geography</Link>
+                        <li className="nav-item" style={{ backgroundColor: geoHovered ? "#E9F3FF" : "" }} onMouseEnter={() => setGeoHovered(true)} onMouseLeave={() => setGeoHovered(false)}>
+                            <Link className="nav-link" href="/geoGraph" style={{ color: geoHovered ? "#185095" : "#0F1C3C" }}>
+                                <FontAwesomeIcon className="nav-icon" icon={faGlobeAmericas} style={{ color: geoHovered ? "#185095" : "#0F1C3C" }}/>
+                                Geography
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/topSeller" style={{color:"#0F1C3C",}} ><BsGraphUp className="nav-icon" icon={BsGraphUp} style={{color:"#0F1C3C"}}/> Top Seller</Link>
+                        <li className="nav-item" style={{ backgroundColor: topSellerHovered ? "#E9F3FF" : "" }} onMouseEnter={() => setTopSellerHovered(true)} onMouseLeave={() => setTopSellerHovered(false)}>
+                            <Link className="nav-link" href="/topSeller" style={{ color: topSellerHovered ? "#185095" : "#0F1C3C" }}>
+                                <BsGraphUp className="nav-icon" icon={BsGraphUp} style={{ color: topSellerHovered ? "#185095" : "#0F1C3C" }}/>
+                                Top Seller
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/topRecord" style={{color:"#0F1C3C",}} ><VscGraphLine className="nav-icon" icon={VscGraphLine} style={{color:"#0F1C3C"}}/> Top Record</Link>
+                        <li className="nav-item" style={{ backgroundColor: topRecordHovered ? "#E9F3FF" : "" }} onMouseEnter={() => setTopRecordHovered(true)} onMouseLeave={() => setTopRecordHovered(false)}>
+                            <Link className="nav-link" href="/topRecord" style={{ color: topRecordHovered ? "#185095" : "#0F1C3C" }}>
+                                <VscGraphLine className="nav-icon" icon={VscGraphLine} style={{ color: topRecordHovered ? "#185095" : "#0F1C3C" }}/>
+                                Top Record
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/topRating" style={{color:"#0F1C3C",}} ><VscGraphLine className="nav-icon" icon={VscGraphLine} style={{color:"#0F1C3C"}}/> Top Rating</Link>
+
+                        <li className="nav-item" style={{ backgroundColor: topRatingHovered ? "#E9F3FF" : "" }} onMouseEnter={() => setTopRatingHovered(true)} onMouseLeave={() => setTopRatingHovered(false)}>
+                            <Link className="nav-link" href="/topRating" style={{ color: geoHovered ? "#185095" : "#0F1C3C" }}>
+                                <FontAwesomeIcon className="nav-icon" icon={faStarHalfStroke} style={{ color: topRatingHovered ? "#185095" : "#0F1C3C" }}/>
+                                Top Rating
+                            </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" href="/mentionAndTag" style={{color:"#0F1C3C",}} ><VscGraphLine className="nav-icon" icon={VscGraphLine} style={{color:"#0F1C3C"}}/> Mention&Tag</Link>
+
+                        <li className="nav-item" style={{ backgroundColor: mentionAndTagHovered ? "#E9F3FF" : "" }} onMouseEnter={() => setMentionAndTagHovered(true)} onMouseLeave={() => setMentionAndTagHovered(false)}>
+                            <Link className="nav-link" href="/mentionAndTag" style={{ color: mentionAndTagHovered ? "#185095" : "#0F1C3C" }}>
+                                <FontAwesomeIcon className="nav-icon" icon={faAt} style={{ color: mentionAndTagHovered ? "#185095" : "#0F1C3C"}}/>
+                                Mention&Tag
+                            </Link>
                         </li>
+
                     </ul>
 
                 </div>
                 <div className="wrapper d-flex flex-column min-vh-100 bg-light">
                     <header className="header header-sticky">
                         <div className="container-fluid">
-                            <ul className="header-nav ms-auto">
-                            </ul>
+                            <ul className="header-nav ms-auto"></ul>
                             <ul className="header-nav ms-3">
                                 <li className="nav-item dropdown">
                                     <a className="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
