@@ -1,11 +1,8 @@
 import Head from "next/head";
 import Script from "next/script";
-import { useRouter } from 'next/navigation';
 import * as React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faGlobeAmericas, faBars, faStarHalfStroke, faAt } from '@fortawesome/free-solid-svg-icons';
-import { BsGraphUp } from "react-icons/bs";
-import { VscGraphLine } from "react-icons/vsc";
+import { faHome, faGlobeAmericas, faBars, faStarHalfStroke, faAt, faChartLine, faChartColumn } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAuthState, selectNameState, setAuthState, setNameState, setUsernameState } from "@/redux/slice/authSlice";
@@ -63,7 +60,6 @@ export default function Template(props) {
                         <dl>
                             <div style={{ paddingTop: 10, paddingLeft: 20 }}>
                                 <dt className="nav-item">
-                                    <FontAwesomeIcon className="nav-icon" icon={faBars} style={{ color: "#0F1C3C" }} />
                                     <img src="https://i.ibb.co/w6cx7NZ/playyod-removebg-preview-1.png" alt="playyod-removebg-preview-1" style={{ paddingLeft: "10%" }} />
                                 </dt>
                             </div>
@@ -97,7 +93,7 @@ export default function Template(props) {
                         <div style={{ backgroundColor: currentLink === '/topRecord' ? "#E9F3FF" : "" }}>
                             <li className={`nav-item ${pathname === '/topRecord' ? 'active' : ''}`} style={{ backgroundColor: hoveredLink === 'topRecord' ? "#E9F3FF" : "" }} onMouseEnter={() => setHoveredLink('topRecord')} onMouseLeave={() => setHoveredLink('')}>
                                 <Link className="nav-link" href="/topRecord" style={{ color: hoveredLink === 'topRecord' ? "#185095" : "#0F1C3C" }}>
-                                    <BsGraphUp style={{fontSize: '1.25rem'}}/>
+                                    <FontAwesomeIcon className="nav-icon" icon={faChartLine} style={{ color: hoveredLink === 'topRecord' ? "#185095" : "#0F1C3C" }}/>
                                     <span className="nav-link-text">Top Record</span>
                                 </Link>
                             </li>
@@ -105,7 +101,7 @@ export default function Template(props) {
                         <div style={{ backgroundColor: currentLink === '/topRating' ? "#E9F3FF" : "" }}>
                             <li className={`nav-item ${pathname === '/topRating' ? 'active' : ''}`} style={{ backgroundColor: hoveredLink === 'topRating' ? "#E9F3FF" : "" }} onMouseEnter={() => setHoveredLink('topRating')} onMouseLeave={() => setHoveredLink('')}>
                                 <Link className="nav-link" href="/topRating" style={{ color: hoveredLink === 'topRating' ? "#185095" : "#0F1C3C" }}>
-                                    <VscGraphLine style={{fontSize: '1.25rem'}}/>
+                                    <FontAwesomeIcon className="nav-icon" icon={faChartColumn} style={{ color: hoveredLink === 'topRating' ? "#185095" : "#0F1C3C" }}/>
                                     <span className="nav-link-text">Top Rating</span>
                                 </Link>
                             </li>

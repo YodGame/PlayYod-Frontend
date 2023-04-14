@@ -43,9 +43,9 @@ export default function topRecord() {
 
     return (
         <Template>
-            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal",padding:30}}>
+            <div style={{height:"50px",color:"black", fontStyle: "normal",padding:30}}>
                 <div style={{float:"left"}}>
-                    <h1 style={{fontSize:"30px"}}>Top records</h1>
+                    <h1 style={{fontSize:"30px"}}>Top Records</h1>
                 </div>
 
                 <div style={{paddingTop:"15px" ,paddingRight:"5%"}}>
@@ -74,7 +74,7 @@ export default function topRecord() {
                 </div>
             </div>
             <div style={{width:650,margin:"auto"}}><LineGraph data={data}/></div>
-            <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
+            <div style={{fontStyle: "normal"}}>
                 <TopRecordTable color="black" page="topRecord" fontSize="35px" headerSize="25px" row={data}/>
             </div>
         </Template>

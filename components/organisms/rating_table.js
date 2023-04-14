@@ -47,7 +47,7 @@ export default function Rating_table(props) {
         <div style={{paddingTop:"70px"}}>
             <div style={{backgroundColor:"#F6F6F6", borderRadius:"10px 19px 10px 10px",paddingTop:"2%",paddingBottom:"20px"}}>
                 <div style={{display:"flex"}}>
-                <h5 style={{paddingLeft:"6%", width:"65%", fontSize:props.headerSize}}>name</h5>
+                <h5 style={{paddingLeft:"6%", width:"65%", fontSize:props.headerSize}}>Name</h5>
                 <h5 style={{width:"35%", textAlign:"center", fontSize:props.headerSize}}>Review</h5>
                 <h5 style={{width:"40%", textAlign:"center", fontSize:props.headerSize}}>Review Count</h5>
             </div>

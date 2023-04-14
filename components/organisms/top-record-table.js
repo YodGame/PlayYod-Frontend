@@ -51,7 +51,7 @@ export default function TopRecordTable(props){
     return (
         <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%", color:props.color}}>
             <div style={{display:"flex"}}>
-                <h5 style={{paddingLeft:"12%", width:"55%", fontSize:props.headerSize}}>name</h5>
+                <h5 style={{paddingLeft:"12%", width:"55%", fontSize:props.headerSize}}>Name</h5>
                 <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Peak Player</h5>
                 <h5 style={{width:"20%", textAlign:"center", fontSize:props.headerSize}}>Time</h5>
             </div>

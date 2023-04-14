@@ -46,8 +46,8 @@ export default function TopPlayersTable(props){
     return (
         <div style={{paddingTop:"17px",paddingLeft:"5%", paddingRight:"5%", color:props.color}}>
             <div style={{display:"flex"}}>
-                <h5 style={{paddingLeft:"20%", width:"55%", fontSize:props.headerSize}}>name</h5>
-                <h5 style={{paddingLeft:"23%",width:"20%", fontSize:props.headerSize}}>PeakPlayer</h5>
+                <h5 style={{paddingLeft:"20%", width:"55%", fontSize:props.headerSize}}>Name</h5>
+                <h5 style={{paddingLeft:"23%",width:"45%", fontSize:props.headerSize}}>Peak Players</h5>
             </div>
 
             {rows.map((item) => (

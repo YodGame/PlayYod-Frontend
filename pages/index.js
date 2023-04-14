@@ -43,10 +43,10 @@ export default function Index() {
 
     return (
         <Template>
-            <div style={{display:"flex", color:"white", fontFamily: 'Inter', fontStyle: "normal"}}>
+            <div style={{display:"flex", color:"white", fontStyle: "normal"}}>
                 <div style={{width:"50%", paddingRight:"10px"}}>
                     <div style={{backgroundColor:"#FDAE38", borderRadius:"30px", paddingBottom:"15px"}}>
-                        <h1 style={{fontSize:"30px",paddingLeft:"15%", paddingTop:"23px"}}>Top seller</h1>
+                        <h1 style={{fontSize:"30px",paddingLeft:"15%", paddingTop:"23px"}}>Top Seller</h1>
                         <TopSellerTable fontSize="25px" headerSize="15px" row={ten_top_seller}/>
                         <div style={{ textAlign:"center", paddingTop:"13px"}}>
                             <Link href="/topSeller">
@@ -79,7 +79,7 @@ export default function Index() {
                 </div>
             </div>
 
-            <div style={{display:"flex", color:"white", fontFamily: 'Inter', fontStyle: "normal" , paddingTop:'30px'}}>
+            <div style={{display:"flex", color:"white", fontStyle: "normal" , paddingTop:'30px'}}>
                 <div style={{width:"50%", paddingRight:"10px"}}>
                     <div style={{backgroundColor:"#185095", borderRadius:"30px", paddingBottom:"15px"}}>
                         <h1 style={{fontSize:"30px",paddingLeft:"15%", paddingTop:"23px"}}>Top Players Today</h1>
