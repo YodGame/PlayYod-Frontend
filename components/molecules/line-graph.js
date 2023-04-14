@@ -27,7 +27,8 @@ export default function LineGraph(props) {
     let arrayPlayers = [];
 
     const API_data = props.data;
-    for (let i = 0; i < API_data.length-40; i++) {
+    const dataSize = props.data.length > 0 ? 10 : 0;
+    for (let i = 0; i < dataSize; i++) {
         arrayNames.push(API_data[i].name);
         arrayPlayers.push(API_data[i].players);
     }

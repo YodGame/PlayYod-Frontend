@@ -26,12 +26,11 @@ export default function topPlayersToday() {
             })
             .catch(error => console.log(error));
     }, []);
-    console.log(data);
 
 
     return (
         <Template>
-            <div style={{height:"50px",color:"black", fontFamily: 'Inter', fontStyle: "normal",padding:30}}>
+            <div style={{height:"50px",color:"black", fontStyle: "normal",padding:30}}>
                 <div style={{float:"left"}}>
                     <h1 style={{fontSize:"30px"}}>Top Player Today</h1>
                 </div>
@@ -39,14 +38,10 @@ export default function topPlayersToday() {
                 <div style={{paddingTop:"15px" ,paddingRight:"5%"}}>
                 </div>
             </div>
-            <div style={{width:650,margin:"auto"}}><LineGraph/></div>
-            <div style={{fontFamily: 'Inter', fontStyle: "normal"}}>
+            <div style={{width:650,margin:"auto"}}><LineGraph data={data}/></div>
+            <div style={{fontStyle: "normal"}}>
                 <TopPlayersTable color="black" page="topPlayersToday" fontSize="35px" headerSize="25px" row={data}/>
             </div>
-
-
-
-
         </Template>
     )
 }
